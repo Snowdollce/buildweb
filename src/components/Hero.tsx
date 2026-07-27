@@ -121,9 +121,9 @@ export default function Hero() {
                 {/* Simulated paper tape styling */}
                 <div className="absolute top-[-10px] left-1/2 transform -translate-x-1/2 w-[70px] h-[18px] bg-[#f6d41c] sketch-border border-dashed rotate-[-2deg]" />
                 
-                <div className="text-[10px] font-black text-[#ea580c] tracking-widest uppercase mb-1 mt-1">INSTRUCTOR</div>
+                <div className="text-xs sm:text-sm font-black text-[#ea580c] tracking-widest uppercase mb-1 mt-1">INSTRUCTOR</div>
                 <div className="text-base sm:text-lg font-black text-[#412d17]">อ.แพรว จันทกานต์ คูชัมภู</div>
-                <div className="text-[10px] font-bold text-slate-500 leading-tight mt-1">
+                <div className="text-xs sm:text-sm font-bold text-slate-500 leading-normal mt-1.5">
                   Senior Capability Development and Training Course Management<br />
                   สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)
                 </div>
