@@ -16,8 +16,8 @@ export default function Pricing() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block bg-[#ea580c] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full sketch-border sketch-shadow-sm rotate-[1.5deg] mb-4">
-            ราคาคุ้มค่าเพื่อการเติบโตขององค์กร
+          <span className="inline-block bg-[#ea580c] text-white text-sm sm:text-base font-extrabold px-6 py-2 rounded-full sketch-border sketch-shadow-sm rotate-[1.5deg] mb-5">
+            ราคาคุ้มค่าเพื่อการเติบโตขององค์กร 💼
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#412d17] leading-tight">
             ค่าธรรมเนียมในการสมัครอบรม
@@ -35,7 +35,7 @@ export default function Pricing() {
           <div className="flex flex-col items-center text-center space-y-6">
             
             {/* Offer Detail */}
-            <div className="bg-[#f6d41c] text-[#412d17] text-sm sm:text-base font-extrabold px-6 py-2 rounded-xl sketch-border sketch-shadow-sm rotate-[-1.5deg] tracking-wide inline-block">
+            <div className="bg-[#f6d41c] text-[#412d17] text-base sm:text-lg font-black px-8 py-3 rounded-2xl sketch-border sketch-shadow rotate-[-1.5deg] tracking-wide inline-block">
               🔥 ดีลพิเศษ: สมัคร 1 อบรมได้ 2 คน
             </div>
 

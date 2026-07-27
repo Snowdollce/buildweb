@@ -20,6 +20,7 @@ export default function Instructor() {
               src="/name_instructor.png"
               alt="วิทยากรผู้บรรยาย"
               fill
+              sizes="(max-width: 768px) 100vw, 450px"
               className="object-contain"
               priority
             />

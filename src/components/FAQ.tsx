@@ -50,6 +50,7 @@ export default function FAQ() {
               src="/FAQ.png"
               alt="คำถามที่พบบ่อย"
               fill
+              sizes="(max-width: 768px) 100vw, 450px"
               className="object-contain"
               priority
             />

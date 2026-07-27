@@ -83,34 +83,50 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Highlights Note */}
-            <div className="bg-[#fefdf5] sketch-border p-4 rounded-xl max-w-md w-full rotate-[-0.5deg] sketch-shadow-sm text-left relative">
-              <div className="absolute -top-3 right-4 text-2xl select-none">📌</div>
-              <div className="font-bold text-sm text-[#1f7a3a] mb-1">🎁 โปรโมชันพิเศษเฉพาะรุ่นนี้:</div>
-              <div className="text-xs sm:text-sm text-[#412d17] font-medium leading-relaxed">
-                สมัครอบรม 1 ท่าน <strong>รับสิทธิ์เข้าเรียนฟรีอีก 1 ท่านทันที!</strong> (ตกท่านละ 1,750 บาท เท่านั้น)
+            {/* Enlarged Highlights Note / Special Promotion Box */}
+            <div className="bg-[#fefdf5] sketch-border-thick p-6 rounded-2xl max-w-lg w-full rotate-[-1deg] sketch-shadow-lg text-left relative">
+              <div className="absolute -top-5 right-6 text-3xl select-none animate-bounce">📌</div>
+              <div className="font-black text-base sm:text-lg text-[#1f7a3a] mb-2 flex items-center gap-2">
+                <span>🎁</span> โปรโมชันพิเศษเฉพาะรุ่นนี้:
+              </div>
+              <div className="text-sm sm:text-base text-[#412d17] font-bold leading-relaxed">
+                สมัครอบรม 1 ท่าน <span className="bg-[#f6d41c] px-1.5 py-0.5 rounded-sm">รับสิทธิ์เข้าเรียนฟรีอีก 1 ท่านทันที!</span><br className="hidden sm:inline" /> 
+                (เฉลี่ยตกเพียงท่านละ <span className="text-[#d64545] font-black underline underline-offset-4 decoration-2">1,750 บาท</span> เท่านั้น)
               </div>
             </div>
 
           </div>
 
-          {/* Hero Right Content (Instructor Image) */}
-          <div className="lg:col-span-5 flex justify-center relative mt-6 lg:mt-0">
+          {/* Hero Right Content (Instructor Image & Overlay Badge) */}
+          <div className="lg:col-span-5 flex justify-center relative mt-8 lg:mt-0">
             {/* Playful Notebook Tape Accent */}
             <div className="absolute top-[-25px] left-[20%] w-[100px] h-[30px] bg-white/60 backdrop-blur-xs sketch-border border-dashed transform rotate-[-8deg] z-10 opacity-70 hidden sm:block" />
             <div className="absolute top-[-20px] right-[25%] w-[80px] h-[30px] bg-white/60 backdrop-blur-xs sketch-border border-dashed transform rotate-[12deg] z-10 opacity-70 hidden sm:block" />
 
             <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/5] flex items-end">
-              {/* Instructor Portrait - No border, frame, or name caption */}
-              <div className="w-full h-full relative overflow-visible flex items-end justify-center select-none pointer-events-none">
+              {/* Instructor Portrait */}
+              <div className="w-full h-full relative overflow-visible flex items-end justify-center select-none pointer-events-none z-10">
                 <Image
                   src="/Instructor02.png"
                   alt="อ.แพรว จันทกานต์ คูชัมภู"
                   fill
-                  sizes="(max-width: 768px) 100vw, 500px"
+                  sizes="(max-width: 768px) 100vw, 420px"
                   priority
                   className="object-contain object-bottom drop-shadow-[8px_8px_0px_rgba(65,45,23,0.15)]"
                 />
+              </div>
+
+              {/* Dynamic Styled Instructor Text Card Overlay */}
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-[90%] bg-white sketch-border px-4 py-3.5 rounded-xl sketch-shadow text-center rotate-[-1.5deg] z-20">
+                {/* Simulated paper tape styling */}
+                <div className="absolute top-[-10px] left-1/2 transform -translate-x-1/2 w-[70px] h-[18px] bg-[#f6d41c] sketch-border border-dashed rotate-[-2deg]" />
+                
+                <div className="text-[10px] font-black text-[#ea580c] tracking-widest uppercase mb-1 mt-1">INSTRUCTOR</div>
+                <div className="text-base sm:text-lg font-black text-[#412d17]">อ.แพรว จันทกานต์ คูชัมภู</div>
+                <div className="text-[10px] font-bold text-slate-500 leading-tight mt-1">
+                  Senior Capability Development and Training Course Management<br />
+                  สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)
+                </div>
               </div>
             </div>
           </div>

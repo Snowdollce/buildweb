@@ -54,8 +54,8 @@ export default function PainPoints() {
         
         {/* Pain Points Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block bg-[#d64545] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full sketch-border sketch-shadow-sm rotate-[-1deg] mb-4">
-            เหนื่อยไหมกับกระบวนการแบบเดิม?
+          <div className="inline-block bg-[#d64545] text-white text-sm sm:text-base font-extrabold px-6 py-2 rounded-full sketch-border sketch-shadow-sm rotate-[-1deg] mb-5">
+            เหนื่อยไหมกับกระบวนการแบบเดิม? 🤔
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#412d17] leading-tight">
             ปัญหายอดฮิตของคนทำงาน<br className="sm:hidden" /> ที่ต้องการทางออกด้วย AI

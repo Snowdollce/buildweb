@@ -73,6 +73,7 @@ export default function CourseOutline() {
               src="/Learningjourney.png"
               alt="Learning Journey"
               fill
+              sizes="(max-width: 768px) 100vw, 450px"
               className="object-contain"
               priority
             />
