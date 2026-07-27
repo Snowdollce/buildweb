@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DX-09: Build WebApp with AI Vibe Coding | Landing Page
 
-## Getting Started
+Landing Page สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI) สำหรับหลักสูตร **"DX-09: Build WebApp with AI Vibe Coding New"** พัฒนาด้วย Next.js (App Router), TypeScript, Tailwind CSS และองค์ประกอบการออกแบบสไตล์ภาพสเก็ตช์สมุดโน้ต (Sketchbook/Notebook Theme) จากเว็บไซต์อ้างอิง
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📋 ข้อมูลหลักสูตร (Course Details)
+
+- **หลักสูตร:** DX-09: Build WebApp with AI Vibe Coding New (1 วัน)
+- **วันเวลาเรียน:** 18 กันยายน 2569 เวลา 09.00 - 16.00 น.
+- **รูปแบบ:** เรียนออนไลน์ผ่าน Zoom (สามารถเข้าชมวิดีโอย้อนหลังได้ 15 วัน)
+- **วิทยากร:** อ.แพรว จันทกานต์ คูชัมภู (Senior Capability Development and Training Course Management, สถาบันเพิ่มผลผลิตแห่งชาติ)
+- **ราคาค่าลงทะเบียน:** 3,500 บาท (ก่อน VAT 7%)
+- **โปรโมชัน:** สมัคร 1 ท่าน ได้สิทธิ์เข้าเรียนฟรีอีก 1 ท่านทันที!
+- **ลิงก์ลงทะเบียนจริง:** [FTPI Event 35117](https://productivity.ftpi.or.th/event/35117/)
+
+---
+
+## 🛠️ เทคโนโลยีที่ใช้ (Tech Stack)
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4 (พร้อมดีไซน์แบบกระดาษสมุดโน้ต ขอบร่างดินสอ และเงาบล็อกหนาแบบ Sketch)
+- **Icons:** Lucide React
+- **Fonts:** Kanit, Sarabun (สำหรับภาษาไทย) และ Inter (สำหรับภาษาอังกฤษ) จาก Google Fonts
+
+---
+
+## 📁 โครงสร้างโปรเจกต์ (Project Structure)
+
+```text
+├── public/                  # ไฟล์รูปภาพองค์ประกอบของสถาบันที่ใช้เป็นหัวข้อและฉากหลัง
+│   ├── Background.png       # ภาพฉากหลังของ Hero Section
+│   ├── Instructor02.png     # ภาพวิทยากร อ.แพรว (แสดงผลแบบไม่มีกรอบ)
+│   ├── Learningjourney.png  # ภาพสำหรับใช้เป็นหัวข้อส่วน Course Outline
+│   ├── name_instructor.png  # ภาพสำหรับใช้เป็นหัวข้อส่วนวิทยากร
+│   └── FAQ.png              # ภาพสำหรับใช้เป็นหัวข้อส่วน FAQ
+├── src/
+│   ├── app/
+│   │   ├── globals.css      # กำหนดสไตล์สมุดโน้ต ลายเส้นบรรทัด และสไตล์ Sketch ทั่วไป
+│   │   ├── layout.tsx       # Root Layout ตั้งค่า SEO Metadata และการดึง Fonts
+│   │   └── page.tsx         # หน้าแรกและหน้าเดียว (Single Page) ของระบบ
+│   └── components/          # ส่วนประกอบย่อยที่แยกการทำงานอย่างเป็นสัดส่วน
+│       ├── Hero.tsx         # ส่วนหัวเว็บและข้อมูลแนะนำเบื้องต้น
+│       ├── PainPoints.tsx   # ส่วนปัญหาของพนักงานและทางออก
+│       ├── CourseOutline.tsx# รายละเอียดเนื้อหาแต่ละโมดูลการเรียน
+│       ├── Instructor.tsx   # แนะนำประวัติและหัวข้อบรรยายของวิทยากร
+│       ├── Pricing.tsx      # บล็อกราคาและสิทธิ์โปรโมชัน 1 แถม 1 พร้อมลิงก์ลงทะเบียน
+│       └── FAQ.tsx          # คำถามที่พบบ่อยในรูปแบบ Accordion (ไม่ต้องติดตั้งปลั๊กอินเพิ่ม)
+│       └── Footer.tsx       # ส่วนล่างสุด ลิงก์ย้อนกลับ และข้อมูลลิขสิทธิ์
+├── package.json             # รายการ Dependencies และคำสั่งรันระบบ
+└── tsconfig.json            # ไฟล์ควบคุมและตรวจสอบ TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 ขั้นตอนการติดตั้งและรันโปรเจกต์ (Getting Started)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. ความต้องการของระบบ (Prerequisites)
+- ติดตั้ง Node.js (แนะนำเวอร์ชัน 18.x หรือ 20.x ขึ้นไป) และ npm
 
-## Learn More
+### 2. ดาวน์โหลดและติดตั้ง Dependencies
+เปิด Terminal ในโฟลเดอร์โครงการแล้วรันคำสั่ง:
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. รันโปรเจกต์ในโหมดพัฒนา (Development Server)
+```bash
+npm run dev
+```
+ระบบจะเปิดใช้งานที่ [http://localhost:3000](http://localhost:3000) สามารถเปิดบราวเซอร์เพื่อดูหน้าเว็บและจะแสดงผลการแก้ไขทันทีแบบ Real-time (Hot Reload)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. การทดสอบสร้างชุดติดตั้งใช้งานจริง (Production Build)
+ก่อนทำการขึ้นเซิร์ฟเวอร์จริง ควรตรวจสอบความสมบูรณ์และคอมไพล์ระบบด้วยคำสั่ง:
+```bash
+npm run build
+```
+หากกระบวนการทำงานสำเร็จลุล่วงและไม่มี Error จะได้โฟลเดอร์ `.next` ที่พร้อมใช้ในการแสดงผลและรันในเซิร์ฟเวอร์จริง
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. การรันระบบที่คอมไพล์แล้ว (Start Production Server)
+หลังจากรันขั้นตอน `build` สำเร็จ สามารถรันคำสั่งนี้เพื่อทดสอบเสมือนขึ้นระบบจริง:
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 รายละเอียดธีมและการออกแบบ (Sketchbook Theme Details)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+หน้าเว็บนี้ประยุกต์ใช้แนวคิดสมุดวาดภาพและสมุดจดโน้ตแบบดั่งเดิม (Sketchbook Theme) โดยมีรายละเอียดความสวยงามดังนี้:
+- **เส้นขอบร่าง (Sketch Borders):** ใช้ขอบหนา 2-3px สีน้ำตาลเข้ม `#412d17` รอบการ์ดและอินพุต ช่วยให้ดูมีมิติเหมือนการเขียนด้วยปากกา
+- **เงาแนวราบ (Sketch Shadows):** ใช้สไตล์เงาแบบบล็อกทึบขอบเหลี่ยม ไม่มีการเบลอจาง เพื่อสะท้อนความสนุกและเข้าถึงง่าย (เช่น `shadow-[4px_4px_0px_0px_#412d17]`)
+- **เส้นจดบรรทัด (Notebook Lines):** สไตล์เลียนแบบหน้ากระดาษจดโน้ตในส่วนของหัวข้อหลักสูตร มีเส้นบรรทัดจางๆ ตลอดความกว้างและการเว้นระยะเย็บเล่ม
+- **ตกแต่งเทปกาวและหมุดติด (Tape & Pins):** ในการ์ดไฮไลต์ต่างๆ จะมีการใช้รูปหมุด 📌 หรือ แถบเทปกาวเหลืองพาดทแยง ช่วยทำให้ดีไซน์ดูมีชีวิตชีวาและไม่น่าเบื่อ
