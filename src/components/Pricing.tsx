@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Pricing() {
   const dxMgaInclusions = [
-    "รูปแบบการเรียน Onsite with Hand-on Workshop ณ สถาบันเพิ่มผลผลิตแห่งชาติ",
+    "รูปแบบการเรียน Onsite with Hand-on Workshop",
     "รับวุฒิบัตร E-Certificate รับรองจากสถาบันเพิ่มผลผลิตแห่งชาติ",
     "สิทธิ์เข้าถึงคลังแสง AI ⚡ สำหรับดาวน์โหลดเทมเพลตและ Prompt พิเศษ",
   ];
