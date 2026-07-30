@@ -21,7 +21,7 @@ const sarabun = Sarabun({
 });
 
 export const metadata: Metadata = {
-  title: "DX-09: Build WebApp with AI Vibe Coding | สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)",
+  title: "คอร์ส AI กับคลังแสงแห่งการเรียนรู้ ทดลองเล่น",
   description: "เปลี่ยนไอเดียในหัวของคุณให้กลายเป็นระบบจริงด้วยขุมพลัง AI ใน 1 วัน โดยไม่ต้องเขียนโค้ดสักบรรทัด กับหลักสูตร DX-09 สอนโดย อ.แพรว จันทกานต์ คูชัมภู",
   icons: {
     icon: "/favicon.ico", // Standard Next.js favicon
