@@ -72,14 +72,16 @@ export default function Pricing({ isHub = false }: PricingProps) {
 
       {/* Register CTA Button */}
       <div className="w-full pt-8">
-        <Link
-          href="/courses/dx-mga"
+        <a
+          href="https://productivity.ftpi.or.th/event/29922/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="block w-full text-center bg-[#ea580c] hover:bg-[#c2410c] text-white font-extrabold text-base sm:text-lg py-3.5 rounded-2xl sketch-border sketch-shadow-lg transition-transform duration-150 active:translate-x-[2px] active:translate-y-[2px] active:shadow-sm"
         >
-          ดูรายละเอียด & ลงชื่อจองที่นี่ 🚀
-        </Link>
+          กดลงทะเบียนที่นี่ 🚀
+        </a>
         <p className="text-[10px] sm:text-xs font-semibold text-slate-500 mt-3 text-center">
-          * หลักสูตร Coming Soon สามารถลงชื่อแสดงความสนใจเพื่อรับสิทธิ์ล่วงหน้า
+          * ระบบจะนำท่านไปลงทะเบียนที่เว็บไซต์ของสถาบันเพิ่มผลผลิตแห่งชาติ
         </p>
       </div>
     </div>
@@ -153,7 +155,7 @@ export default function Pricing({ isHub = false }: PricingProps) {
   );
 
   return (
-    <section id="pricing-section" className="relative w-full bg-white py-16 md:py-24 border-b-4 border-[#412d17]">
+    <section id="pricing-section" className="relative w-full bg-[#fef9c3] py-16 md:py-24 border-b-4 border-[#412d17]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}

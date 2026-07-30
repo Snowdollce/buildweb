@@ -101,8 +101,8 @@ export default function Header() {
             </div>
 
             <Link
-              href="/dx-09#pricing-section"
-              onClick={(e) => handleNavClick(e, "/dx-09", "pricing-section")}
+              href="/#pricing-section"
+              onClick={(e) => handleNavClick(e, "/", "pricing-section")}
               className="font-black text-sm text-[#412d17] hover:text-[#ea580c] transition-colors relative py-1 cursor-pointer group"
             >
               ค่าลงทะเบียน
@@ -166,8 +166,8 @@ export default function Header() {
           </div>
 
           <Link
-            href="/dx-09#pricing-section"
-            onClick={(e) => handleNavClick(e, "/dx-09", "pricing-section")}
+            href="/#pricing-section"
+            onClick={(e) => handleNavClick(e, "/", "pricing-section")}
             className="block font-black text-base py-2 text-[#412d17] hover:text-[#ea580c] transition-colors cursor-pointer"
           >
             ค่าลงทะเบียน
