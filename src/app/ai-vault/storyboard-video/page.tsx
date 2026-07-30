@@ -26,7 +26,7 @@ export default function StoryboardVideoPromptPage() {
       id: 1,
       num: "01",
       badge: "01 · CHATGPT PROMPT",
-      title: "Universal Cinematic Storyboard Generator",
+      title: "Storyboard Generator",
       desc: "ตั้ง ChatGPT เป็นนักเขียนสตอรี่บอร์ดและผู้กำกับโฆษณาภาพยนตร์ — สร้างกริดภาพ 9 ช่อง สัดส่วน 9:16 ที่มีความสม่ำเสมอของตัวละครและสินค้าอย่างสมบูรณ์แบบ",
       bullets: [
         "วิเคราะห์รูปภาพสินค้าและจัดทำสตอรี่บอร์ดอัตโนมัติ",

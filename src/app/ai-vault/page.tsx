@@ -73,9 +73,9 @@ export default function AiVaultPortal() {
 
   const subpages = [
     {
-      title: "Prompt การสร้างสตอรี่บอร์ดและสร้างคลิปวิดีโอ (อยู่ในหน้าเดียวกัน)",
+      title: "Prompt การสร้างสตอรี่บอร์ดและสร้างคลิปวิดีโอ",
       path: "/ai-vault/storyboard-video",
-      description: "คลังแสงย่อยสำหรับสร้าง Storyboard (ChatGPT 9:16) และ Google Flow (16:9 Video Prompt)"
+      description: "คลังแสงย่อยแจก Prompt สำหรับสร้าง Storyboard และสร้างวิดีโอ Google Flow"
     }
   ];
 
