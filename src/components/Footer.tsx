@@ -28,14 +28,14 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2">
             <div className="flex items-center gap-2">
               <div className="bg-[#f6d41c] text-[#412d17] p-1.5 rounded-lg font-black text-xs sketch-border">
-                DX-09
+                DX Hub
               </div>
               <span className="font-extrabold text-base tracking-wide text-white">
-                Build WebApp with AI Vibe Coding
+                AI Capability Development
               </span>
             </div>
             <p className="text-xs font-medium text-white/60">
-              จัดโดยสถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)
+              จัดโดย DX Hub
             </p>
           </div>
 
@@ -85,10 +85,10 @@ export default function Footer() {
         {/* Footer Bottom Copy */}
         <div className="flex flex-col md:flex-row justify-between items-center text-center gap-4 text-xs font-semibold text-white/40">
           <div>
-            © {new Date().getFullYear()} Thailand Productivity Institute. All rights reserved.
+            © {new Date().getFullYear()} DX Hub. All rights reserved.
           </div>
           <div className="flex items-center gap-1.5">
-            <Award className="w-4 h-4" /> สถาบันเพิ่มผลผลิตแห่งชาติ
+            <Award className="w-4 h-4" /> DX Hub
           </div>
         </div>
 

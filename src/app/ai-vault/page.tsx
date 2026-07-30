@@ -91,7 +91,7 @@ export default function AiVaultPortal() {
           
           <div className="relative z-10 max-w-7xl mx-auto px-4 text-center space-y-6">
             <div className="inline-block bg-[#412d17] text-[#f6d41c] text-xs sm:text-sm font-bold px-4 py-1.5 tracking-wider uppercase transform rotate-[-1.5deg] sketch-border sketch-shadow-sm select-none">
-              ★ FTPI AI VAULT ★
+              ★ AI VAULT ★
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#412d17] leading-tight font-display tracking-tight">

@@ -51,7 +51,7 @@ export default function Header() {
                 AI Capability Development
               </span>
               <span className="text-[10px] font-bold text-[#412d17]/60 leading-none mt-1">
-                สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)
+                DX Hub
               </span>
             </div>
           </Link>

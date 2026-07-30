@@ -45,8 +45,7 @@ export default function Instructor() {
                 </h3>
                 
                 <p className="text-sm sm:text-base font-bold text-slate-500 leading-normal">
-                  Senior Capability Development and Training Course Management,<br />
-                  สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)
+                  Senior Capability Development and Training Course Management
                 </p>
               </div>
 

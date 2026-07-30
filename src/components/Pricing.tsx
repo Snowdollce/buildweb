@@ -80,9 +80,6 @@ export default function Pricing({ isHub = false }: PricingProps) {
         >
           กดลงทะเบียนที่นี่ 🚀
         </a>
-        <p className="text-[10px] sm:text-xs font-semibold text-slate-500 mt-3 text-center">
-          * ระบบจะนำท่านไปลงทะเบียนที่เว็บไซต์ของสถาบันเพิ่มผลผลิตแห่งชาติ
-        </p>
       </div>
     </div>
   );
@@ -145,11 +142,8 @@ export default function Pricing({ isHub = false }: PricingProps) {
           rel="noopener noreferrer"
           className="block w-full text-center bg-[#ea580c] hover:bg-[#c2410c] text-white font-extrabold text-base sm:text-lg py-3.5 rounded-2xl sketch-border sketch-shadow-lg transition-transform duration-150 active:translate-x-[2px] active:translate-y-[2px] active:shadow-sm"
         >
-          กดลงทะเบียนสมัครเรียนที่นี่ 🎯
+          กดลงทะเบียนที่นี่ 🚀
         </a>
-        <p className="text-[10px] sm:text-xs font-semibold text-slate-500 mt-3 text-center">
-          * ระบบจะนำท่านไปลงทะเบียนที่เว็บไซต์ของสถาบันเพิ่มผลผลิตแห่งชาติ
-        </p>
       </div>
     </div>
   );

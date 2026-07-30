@@ -124,8 +124,7 @@ export default function Hero() {
                 <div className="text-xs sm:text-sm font-black text-[#ea580c] tracking-widest uppercase mb-1 mt-1">INSTRUCTOR</div>
                 <div className="text-base sm:text-lg font-black text-[#412d17]">อ.แพรว จันทกานต์ คูชัมภู</div>
                 <div className="text-xs sm:text-sm font-bold text-slate-500 leading-normal mt-1.5">
-                  Senior Capability Development and Training Course Management<br />
-                  สถาบันเพิ่มผลผลิตแห่งชาติ (FTPI)
+                  Senior Capability Development and Training Course Management
                 </div>
               </div>
             </div>
