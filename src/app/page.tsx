@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Sparkles, Wrench, Film, Folder, Wallet, Lock } from "lucide-react";
 import LearningMethod from "@/components/LearningMethod";
 import LearningPath from "@/components/LearningPath";
+import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 
 export default function CourseHub() {
@@ -294,6 +295,9 @@ export default function CourseHub() {
           </div>
 
         </section>
+
+        {/* PRICING SECTION */}
+        <Pricing isHub={true} />
 
       </main>
       <Footer />
