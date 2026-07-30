@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUp, Award } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -52,6 +53,12 @@ export default function Footer() {
             >
               ค่าลงทะเบียน
             </button>
+            <Link
+              href="/ai-vault"
+              className="hover:text-[#f6d41c] text-[#f6d41c] transition-colors cursor-pointer"
+            >
+              คลังแสง AI ⚡
+            </Link>
             <a
               href="https://productivity.ftpi.or.th/event/35117/"
               target="_blank"

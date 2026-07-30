@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Kanit, Sarabun } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,7 @@ export default function RootLayout({
       className={`${inter.variable} ${kanit.variable} ${sarabun.variable} scroll-smooth antialiased`}
     >
       <body className="font-sans bg-[#fefdf5] text-[#412d17] min-h-screen">
+        <Header />
         {children}
       </body>
     </html>
