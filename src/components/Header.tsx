@@ -87,14 +87,14 @@ export default function Header() {
                     onClick={(e) => handleNavClick(e, "/courses/dx-mga")}
                     className="block font-bold text-xs sm:text-sm text-[#412d17] hover:text-[#ea580c] hover:bg-[#f6d41c]/20 px-3 py-2.5 rounded-lg transition-colors"
                   >
-                    🎨 Generative AI & Design (DX-MGA)
+                    🎨 Generative AI & Design
                   </Link>
                   <Link
                     href="/dx-09"
                     onClick={(e) => handleNavClick(e, "/dx-09")}
                     className="block font-bold text-xs sm:text-sm text-[#412d17] hover:text-[#ea580c] hover:bg-[#f6d41c]/20 px-3 py-2.5 rounded-lg transition-colors border-t border-dashed border-[#412d17]/10"
                   >
-                    💻 Build WebApp with AI (DX-09)
+                    💻 Build WebApp with AI
                   </Link>
                 </div>
               )}
