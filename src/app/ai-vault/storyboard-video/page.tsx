@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, Sparkles, Copy, Check, ChevronDown, ChevronUp, Terminal } from "lucide-react";
 import { STORYBOARD_PROMPT, VIDEO_FLOW_PROMPT } from "@/data/prompts";
@@ -9,6 +9,10 @@ import Footer from "@/components/Footer";
 export default function StoryboardVideoPromptPage() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [copiedStatus, setCopiedStatus] = useState<number | null>(null);
+
+  useEffect(() => {
+    document.title = "คอร์ส AI กับคลังแสงแห่งการเรียนรู้ ทดลองเล่น";
+  }, []);
 
   const toggleExpand = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);

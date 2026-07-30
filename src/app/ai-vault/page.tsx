@@ -13,6 +13,7 @@ export default function AiVaultPortal() {
 
   // Check if already unlocked on mount
   useEffect(() => {
+    document.title = "คอร์ส AI กับคลังแสงแห่งการเรียนรู้ ทดลองเล่น";
     const savedStatus = localStorage.getItem("dx09_vault_unlocked");
     if (savedStatus === "true") {
       setIsUnlocked(true);
