@@ -110,6 +110,16 @@ export default function Header() {
             </Link>
             
             <Link
+              href="/prompt-workshop"
+              className={`font-black text-sm transition-colors relative py-1 cursor-pointer group ${
+                pathname.startsWith("/prompt-workshop") ? "text-[#ea580c]" : "text-[#412d17] hover:text-[#ea580c]"
+              }`}
+            >
+              Workshop Playground
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-[#ea580c] transition-all ${pathname.startsWith("/prompt-workshop") ? "w-full" : "w-0 group-hover:w-full"}`} />
+            </Link>
+
+            <Link
               href="/ai-vault"
               className={`flex items-center gap-1.5 px-4.5 py-2.5 rounded-xl font-black text-sm sketch-border transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer ${
                 pathname.startsWith("/ai-vault")
@@ -171,6 +181,16 @@ export default function Header() {
             className="block font-black text-base py-2 text-[#412d17] hover:text-[#ea580c] transition-colors cursor-pointer"
           >
             ค่าลงทะเบียน
+          </Link>
+
+          <Link
+            href="/prompt-workshop"
+            onClick={() => setIsOpen(false)}
+            className={`block font-black text-base py-2 transition-colors cursor-pointer ${
+              pathname.startsWith("/prompt-workshop") ? "text-[#ea580c]" : "text-[#412d17] hover:text-[#ea580c]"
+            }`}
+          >
+            Workshop Playground
           </Link>
 
           <div className="pt-2">
