@@ -102,11 +102,11 @@ export default function SlideDeckPromptPage() {
   const [copiedCardId, setCopiedCardId] = useState<number | null>(null);
   
   // Custom Prompt Builder states
-  const [builderRole, setBuilderRole] = useState("คุณคือที่ปรึกษาการบริหารยุทธศาสตร์ระดับสูง");
-  const [builderAudience, setBuilderAudience] = useState("ผู้บริหารระดับสูงและคณะกรรมการบริษัท");
-  const [builderGoal, setBuilderGoal] = useState("นำเสนอสรุปประเด็นการดำเนินงานและแผนยุทธศาสตร์ประจำปี");
-  const [builderStructure, setBuilderStructure] = useState("7 สไลด์ : 1. ปก / 2. Executive Summary / 3. ผลการดำเนินงาน / 4. ปัญหาสำคัญ / 5. แผนยุทธศาสตร์ / 6. ประมาณการงบ / 7. มติที่ต้องอนุมัติ");
-  const [builderStyle, setBuilderStyle] = useState("Corporate Luxury โทนสีน้ำเงินเข้ม-ทอง");
+  const [builderRole, setBuilderRole] = useState("(ตัวอย่าง) คุณคือที่ปรึกษาการบริหารยุทธศาสตร์ระดับสูง");
+  const [builderAudience, setBuilderAudience] = useState("(ตัวอย่าง) ผู้บริหารระดับสูงและคณะกรรมการบริษัท");
+  const [builderGoal, setBuilderGoal] = useState("(ตัวอย่าง) นำเสนอสรุปประเด็นการดำเนินงานและแผนยุทธศาสตร์ประจำปี");
+  const [builderStructure, setBuilderStructure] = useState("(ตัวอย่าง) 7 สไลด์ : 1. ปก / 2. Executive Summary / 3. ผลการดำเนินงาน / 4. ปัญหาสำคัญ / 5. แผนยุทธศาสตร์ / 6. ประมาณการงบ / 7. มติที่ต้องอนุมัติ");
+  const [builderStyle, setBuilderStyle] = useState("(ตัวอย่าง) Corporate Luxury โทนสีน้ำเงินเข้ม-ทอง");
   const [builderLang, setBuilderLang] = useState("ไทย");
   const [copiedBuilder, setCopiedBuilder] = useState(false);
 
@@ -501,12 +501,14 @@ export default function SlideDeckPromptPage() {
                 </div>
                 <div>
                   <label className="block text-xs font-black text-[#412d17] mb-1">6. ภาษา (Language)</label>
-                  <input
-                    type="text"
+                  <select
                     value={builderLang}
                     onChange={(e) => setBuilderLang(e.target.value)}
                     className="w-full px-3.5 py-2.5 border-2 border-[#412d17] rounded-xl text-sm font-bold text-[#412d17] focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 bg-[#fefdf5]"
-                  />
+                  >
+                    <option value="ไทย">ไทย</option>
+                    <option value="อังกฤษ">อังกฤษ</option>
+                  </select>
                 </div>
               </div>
             </div>
