@@ -393,7 +393,7 @@ export default function SlideDeckPromptPage() {
                       <div className="bg-[#412d17] text-white p-4.5 rounded-xl font-sans text-xs leading-relaxed space-y-1.5 sketch-border border-dashed relative">
                         <div className="text-[10px] font-black text-[#f6d41c] uppercase tracking-wider mb-2 border-b border-white/10 pb-1.5 flex justify-between">
                           <span>PROMPT ใน Studio</span>
-                          <span>วางในช่อง Slide Deck > ✏️</span>
+                          <span>{"วางในช่อง Slide Deck > ✏️"}</span>
                         </div>
                         <p><strong className="text-[#f6d41c]">บทบาท :</strong> {item.role}</p>
                         <p><strong className="text-[#f6d41c]">แหล่งข้อมูล :</strong> {item.source}</p>
@@ -516,7 +516,7 @@ export default function SlideDeckPromptPage() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center border-b border-white/10 pb-3">
                   <span className="text-[10px] font-black text-[#f6d41c]">PROMPT PREVIEW (พร้อมก๊อปปี้)</span>
-                  <span className="text-[10px] text-white/50">วางในช่อง Slide Deck > ✏️</span>
+                  <span className="text-[10px] text-white/50">{"วางในช่อง Slide Deck > ✏️"}</span>
                 </div>
                 <pre className="text-xs font-mono whitespace-pre-wrap leading-relaxed text-slate-200 overflow-y-auto max-h-72 custom-scrollbar select-all">
                   {customBuilderOutput}
