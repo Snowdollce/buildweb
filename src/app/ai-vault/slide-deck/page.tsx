@@ -36,7 +36,7 @@ function SvgDoughnutChart() {
             strokeWidth="3.8"
             strokeDasharray="25 75"
             strokeDashoffset="0"
-            className="transition-all duration-500 hover:strokeWidth-[4.5]"
+            className="transition-all duration-500 hover:opacity-80 cursor-pointer"
           />
           <circle
             cx="18"
@@ -47,7 +47,7 @@ function SvgDoughnutChart() {
             strokeWidth="3.8"
             strokeDasharray="25 75"
             strokeDashoffset="-25"
-            className="transition-all duration-500 hover:strokeWidth-[4.5]"
+            className="transition-all duration-500 hover:opacity-80 cursor-pointer"
           />
           <circle
             cx="18"
@@ -58,7 +58,7 @@ function SvgDoughnutChart() {
             strokeWidth="3.8"
             strokeDasharray="25 75"
             strokeDashoffset="-50"
-            className="transition-all duration-500 hover:strokeWidth-[4.5]"
+            className="transition-all duration-500 hover:opacity-80 cursor-pointer"
           />
           <circle
             cx="18"
@@ -69,7 +69,7 @@ function SvgDoughnutChart() {
             strokeWidth="3.8"
             strokeDasharray="25 75"
             strokeDashoffset="-75"
-            className="transition-all duration-500 hover:strokeWidth-[4.5]"
+            className="transition-all duration-500 hover:opacity-80 cursor-pointer"
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white rounded-full w-[70%] h-[70%] m-auto sketch-border">
@@ -566,7 +566,7 @@ export default function SlideDeckPromptPage() {
               <div className="text-sky-600 font-black text-base sm:text-lg">🎯 Rule 2: Action Titles Matter</div>
               <h4 className="font-black text-[#412d17] text-sm">ห้ามใช้หัวสไลด์คำลอยๆ</h4>
               <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                อย่าปล่อยให้ AI เขียนหัวสไลด์ว่า "ผลการดำเนินงาน" แต่จงบังคับกติกาใน Prompt ให้สรุปใจความ เช่น <span class="font-bold text-sky-600 underline">"ยอดขาย Q3 เติบโต 15% จากการขยายตลาดเอเชีย"</span> เพื่อให้ผู้ฟังเข้าใจอินไซต์ทันที
+                อย่าปล่อยให้ AI เขียนหัวสไลด์ว่า "ผลการดำเนินงาน" แต่จงบังคับกติกาใน Prompt ให้สรุปใจความ เช่น <span className="font-bold text-sky-600 underline">"ยอดขาย Q3 เติบโต 15% จากการขยายตลาดเอเชีย"</span> เพื่อให้ผู้ฟังเข้าใจอินไซต์ทันที
               </p>
             </div>
             {/* Tip 3 */}
