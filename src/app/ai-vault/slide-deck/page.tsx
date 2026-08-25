@@ -558,7 +558,7 @@ export default function SlideDeckPromptPage() {
               <div className="text-[#ea580c] font-black text-base sm:text-lg">💡 Rule 1: Strict Source Control</div>
               <h4 className="font-black text-[#412d17] text-sm">ป้องกัน AI มั่วข้อมูล 100%</h4>
               <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                ต้องใส่คำสั่งกำกับใน Prompt เสมอว่า <span className="font-bold text-[#ea580c] underline">"ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง"</span> เพื่อบังคับให้โมเดลดึงข้อมูลเฉพาะเอกสารอ้างอิงจริงเท่านั้น
+                ต้องใส่คำสั่งกำกับใน Prompt เสมอว่า <span className="font-bold text-[#ea580c] underline">&ldquo;ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง&rdquo;</span> เพื่อบังคับให้โมเดลดึงข้อมูลเฉพาะเอกสารอ้างอิงจริงเท่านั้น
               </p>
             </div>
             {/* Tip 2 */}
@@ -566,7 +566,7 @@ export default function SlideDeckPromptPage() {
               <div className="text-sky-600 font-black text-base sm:text-lg">🎯 Rule 2: Action Titles Matter</div>
               <h4 className="font-black text-[#412d17] text-sm">ห้ามใช้หัวสไลด์คำลอยๆ</h4>
               <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                อย่าปล่อยให้ AI เขียนหัวสไลด์ว่า "ผลการดำเนินงาน" แต่จงบังคับกติกาใน Prompt ให้สรุปใจความ เช่น <span className="font-bold text-sky-600 underline">"ยอดขาย Q3 เติบโต 15% จากการขยายตลาดเอเชีย"</span> เพื่อให้ผู้ฟังเข้าใจอินไซต์ทันที
+                อย่าปล่อยให้ AI เขียนหัวสไลด์ว่า &ldquo;ผลการดำเนินงาน&rdquo; แต่จงบังคับกติกาใน Prompt ให้สรุปใจความ เช่น <span className="font-bold text-sky-600 underline">&ldquo;ยอดขาย Q3 เติบโต 15% จากการขยายตลาดเอเชีย&rdquo;</span> เพื่อให้ผู้ฟังเข้าใจอินไซต์ทันที
               </p>
             </div>
             {/* Tip 3 */}
@@ -574,7 +574,7 @@ export default function SlideDeckPromptPage() {
               <div className="text-[#1f7a3a] font-black text-base sm:text-lg">📌 Rule 3: One Slide = One Takeaway</div>
               <h4 className="font-black text-[#412d17] text-sm">ไม่เกิน 10 สไลด์ ต่อ Deck</h4>
               <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                การคุมจำนวนสไลด์ไม่ให้เกิน 10 แผ่น จะบังคับให้ AI สกัดเฉพาะ "น้ำเนื้อ" ที่ทรงอิมแพกต์ที่สุด ลดภาระสายตาของผู้ฟัง และสร้างการนำเสนอที่น่าจดจำ
+                การคุมจำนวนสไลด์ไม่ให้เกิน 10 แผ่น จะบังคับให้ AI สกัดเฉพาะ &ldquo;น้ำเนื้อ&rdquo; ที่ทรงอิมแพกต์ที่สุด ลดภาระสายตาของผู้ฟัง และสร้างการนำเสนอที่น่าจดจำ
               </p>
             </div>
           </div>
