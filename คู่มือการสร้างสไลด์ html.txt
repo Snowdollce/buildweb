@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือการสร้างสไลด์มืออาชีพด้วย Gemini Notebook | Presentation Masterclass</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts: Prompt & Sarabun -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                        display: ['Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f3ff',
+                            100: '#e0e7ff',
+                            500: '#4f46e5',
+                            600: '#4338ca',
+                            700: '#3730a3',
+                            800: '#1e1b4b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            gold: '#d97706',
+                            emerald: '#059669',
+                            rose: '#e11d48',
+                            cyan: '#0891b2'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px;
+            max-height: 320px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 320px;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Chosen Palette: Warm Slate & AI Indigo -->
+    <!-- Application Structure Plan: Interactive Studio Manual for Gemini Notebook Slide Generation. Organized into 4 main sections: (1) Core Capabilities & 5-Step Workflow, (2) Interactive Catalog of 20 Master Prompts with search/filter and copy functionality, (3) Live Prompt Generator Tool for custom inputs, and (4) Executive Pro-Tips. Designed to transform static text into an actionable, interactive workspace for presentation creators. -->
+    <!-- Visualization & Content Choices: Visualizing Use Case categories with Chart.js donut chart; step-by-step workflow with CSS grid/flex interactive steps; prompt builder with dynamic JS template rendering; zero SVG used, all icons rendered via Unicode and Tailwind badge elements. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-display font-bold text-xl shadow-md shadow-brand-500/20">GN</span>
+                <div>
+                    <h1 class="font-display font-bold text-lg text-slate-900 leading-tight">Gemini Notebook Studio</h1>
+                    <p class="text-xs text-slate-500">Presentation Design Master Guide</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#features" class="text-slate-600 hover:text-brand-600 transition-colors">ฟีเจอร์หลัก</a>
+                <a href="#workflow" class="text-slate-600 hover:text-brand-600 transition-colors">ขั้นตอนการทำงาน</a>
+                <a href="#prompts" class="text-slate-600 hover:text-brand-600 transition-colors">20 Use Cases</a>
+                <a href="#builder" class="text-slate-600 hover:text-brand-600 transition-colors">สร้าง Prompt เอง</a>
+                <a href="#protips" class="text-slate-600 hover:text-brand-600 transition-colors">Pro-Tips</a>
+            </nav>
+            <a href="#prompts" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-medium rounded-lg transition-all shadow-sm">
+                เริ่มใช้งาน Prompts ➔
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-brand-50/70 via-white to-slate-50 py-12 md:py-16 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-5">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-xs font-semibold">
+                        <span>✦ Creative Director Edition</span>
+                        <span class="text-slate-300">|</span>
+                        <span>Grounded AI Engine</span>
+                    </div>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                        เปลี่ยนเนื้อหาดิบ สู่ <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">Slide Deck เวิลด์คลาส</span> ด้วย Gemini Notebook
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                        คู่มือและคลัง Master Prompts ปรับแต่งเฉพาะทาง 20 สถานการณ์ ครอบคลุมการควบคุมบทบาท แหล่งข้อมูล โครงสร้างสไลด์ และสไตล์ภาพ ให้คุณสร้าง Presentation ที่กระชับ ตรงประเด็น แม่นยำ 100% โดยไร้ปัญหา AI Hallucination
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <div class="flex items-center space-x-2 text-xs sm:text-sm text-slate-600 bg-white px-3 py-2 rounded-lg border border-slate-200 shadow-sm">
+                            <span class="text-emerald-500 font-bold">✓</span>
+                            <span>Source Grounding 100%</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-xs sm:text-sm text-slate-600 bg-white px-3 py-2 rounded-lg border border-slate-200 shadow-sm">
+                            <span class="text-emerald-500 font-bold">✓</span>
+                            <span>ควบคุมไม่เกิน 10 สไลด์</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-xs sm:text-sm text-slate-600 bg-white px-3 py-2 rounded-lg border border-slate-200 shadow-sm">
+                            <span class="text-emerald-500 font-bold">✓</span>
+                            <span>รองรับ Custom Prompts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full bg-white p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <h3 class="font-display font-semibold text-slate-800 text-sm">สัดส่วนหมวดหมู่ 20 Use Cases</h3>
+                            <span class="text-xs text-slate-400">ภาพรวมคลัง Prompts</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Section 1: Features & Capabilities -->
+        <section id="features" class="space-y-6 scroll-mt-20">
+            <div class="border-l-4 border-brand-600 pl-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">1. ฟีเจอร์หลักและการทำงานของ Gemini Notebook</h2>
+                <p class="text-slate-500 text-sm mt-1">เข้าใจขีดความสามารถเฉพาะตัวที่ออกแบบมาเพื่อการจัดการความรู้และทำสไลด์โดยเฉพาะ</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">
+                        📂
+                    </div>
+                    <h3 class="font-display font-semibold text-slate-900 text-lg">Source-Grounded Engine</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        รองรับการอัปโหลดเอกสารสูงสุดถึง 50 แหล่งข้อมูล (PDF, Google Docs, Slides, Web URL, YouTube Transcript และ Audio) AI จะตอบและสร้างสไลด์จากข้อมูลเหล่านี้เท่านั้น ไร้การมั่วข้อมูล
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg">
+                        🎨
+                    </div>
+                    <h3 class="font-display font-semibold text-slate-900 text-lg">Studio / Slide Deck Generator</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        ระบบแปลงเอกสารทั้งคลังให้กลายเป็นร่างโครงสร้างสไลด์ (Slide Outline & Content Draft) ได้ด้วยการกดเพียงคลิกเดียวจากเมนู Studio ในหน้าต่างหลัก
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg">
+                        ✏️
+                    </div>
+                    <h3 class="font-display font-semibold text-slate-900 text-lg">Custom Prompt Editor (ไอคอนรูปดินสอ)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        หัวใจสำคัญในการควบคุมคุณภาพ สามารถกดแก้ไข Prompt คำสั่งตรงไอคอนรูปดินสอในหมวด Slide Deck เพื่อกำหนด Role, Audience, Rules และ Visual Style ได้ลึกซึ้ง
+                    </p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">
+                        🔗
+                    </div>
+                    <h3 class="font-display font-semibold text-slate-900 text-lg">Citation & Source Tracing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        ทุกหัวข้อ ข้อความ หรือตัวเลขที่ถูกเจนในสไลด์ สามารถกดคลิกที่ตัวเลขกำกับอ้างอิงเพื่อย้อนกลับไปดูบรรทัด/หน้าต้นฉบับในเอกสารได้ทันที ตรวจสอบความถูกต้องได้ 100%
+                    </p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg">
+                        🎙️
+                    </div>
+                    <h3 class="font-display font-semibold text-slate-900 text-lg">Audio Overview Integration</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        ฟีเจอร์สร้าง Audio Podcast สรุปเนื้อหาสไลด์ ช่วยให้วิทยากรหรือผู้บริหารใช้ฟังซ้อมนำเสนอ หรือสรุปประเด็นสำคัญฟังระหว่างการเดินทางได้
+                    </p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg">
+                        ⚡
+                    </div>
+                    <h3 class="font-display font-semibold text-slate-900 text-lg">Export & Visual Handoff</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        เมื่อได้โครงสร้างเนื้อหาและ Action Titles จาก Gemini Notebook สามารถส่งต่อข้อความไปยัง Google Slides, PowerPoint หรือ Canva เพื่อใส่สไตล์ visual ต่อได้ทันที
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Workflow -->
+        <section id="workflow" class="space-y-6 scroll-mt-20">
+            <div class="border-l-4 border-brand-600 pl-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">2. ขั้นตอนการทำงาน (Professional Workflow)</h2>
+                <p class="text-slate-500 text-sm mt-1">5 ขั้นตอนมาตรฐานจากข้อมูลดิบสู่สไลด์ระดับมืออาชีพ</p>
+            </div>
+
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                    <!-- Step 1 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 relative">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+                        <h4 class="font-display font-semibold text-slate-900 text-sm">เตรียม Data Sources</h4>
+                        <p class="text-xs text-slate-600">รวบรวมไฟล์รายงาน วิจัย สรุปประชุม หรือ URL ที่เกี่ยวข้อง</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+                        <h4 class="font-display font-semibold text-slate-900 text-sm">อัปโหลดเข้า Notebook</h4>
+                        <p class="text-xs text-slate-600">นำไฟล์ใส่ใน Gemini Notebook เพื่อสร้างฐานข้อมูลเฉพาะ</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+                        <h4 class="font-display font-semibold text-slate-900 text-sm">เปิด Studio > Slide Deck</h4>
+                        <p class="text-xs text-slate-600">ไปยังเมนู Studio เลือกฟังก์ชันสร้างสไลด์</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="p-4 bg-brand-50 border-2 border-brand-500 rounded-xl space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">4</div>
+                        <h4 class="font-display font-semibold text-brand-900 text-sm">ใส่ Prompt (ปุ่มดินสอ)</h4>
+                        <p class="text-xs text-brand-700 font-medium">คัดลอก Master Prompt จากคู่มือนี้ไปปรับใช้ในช่องดินสอ ✏️</p>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">5</div>
+                        <h4 class="font-display font-semibold text-slate-900 text-sm">ส่งต่อออกแบบ Visual</h4>
+                        <p class="text-xs text-slate-600">นำโครงสร้างไปจัดธีมและภาพใน Slides, PPT หรือ Canva</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 20 Master Prompts Catalog -->
+        <section id="prompts" class="space-y-6 scroll-mt-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-4 border-brand-600 pl-4">
+                <div>
+                    <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">3. คลัง 20 Master Prompts สำหรับ 20 Use Cases</h2>
+                    <p class="text-slate-500 text-sm mt-1">คัดลอก Prompt ที่โครงสร้างสมบูรณ์ครบ 8 องค์ประกอบ พร้อมใช้งานได้ทันที</p>
+                </div>
+                <!-- Search & Filter Controls -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="searchInput" placeholder="🔍 ค้นหา Use Case หรือคำสำคัญ..." class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 w-full sm:w-64 bg-white">
+                    <select id="categoryFilter" class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white">
+                        <option value="all">หมวดหมู่ทั้งหมด</option>
+                        <option value="executive">ผู้บริหาร & ยุทธศาสตร์</option>
+                        <option value="academic">วิชาการ & การสอน</option>
+                        <option value="business">ธุรกิจ & การตลาด</option>
+                        <option value="data">ข้อมูล & เทคนิค</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Prompts Grid Container -->
+            <div id="promptsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamic cards populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Section 4: Live Custom Prompt Generator -->
+        <section id="builder" class="space-y-6 scroll-mt-20">
+            <div class="border-l-4 border-brand-600 pl-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">4. เครื่องมือสร้าง Custom Prompt อัตโนมัติ</h2>
+                <p class="text-slate-500 text-sm mt-1">กำหนดพารามิเตอร์ของคุณเอง เพื่อสร้าง Prompt ที่ผ่านการปรับแต่งโครงสร้างมาตรฐาน 8 ข้อ</p>
+            </div>
+
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Form Controls -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">1. บทบาท (Role)</label>
+                        <input type="text" id="builderRole" value="คุณคือที่ปรึกษาการบริหารยุทธศาสตร์ระดับสูง" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">2. กลุ่มเป้าหมาย (Target Audience)</label>
+                        <input type="text" id="builderAudience" value="ผู้บริหารระดับสูงและคณะกรรมการบริษัท" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">3. เป้าหมายหลัก (Goal)</label>
+                        <input type="text" id="builderGoal" value="นำเสนอสรุปประเด็นการดำเนินงานและแผนยุทธศาสตร์ประจำปี" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">4. จำนวนและโครงสร้างสไลด์ (ไม่เกิน 10 สไลด์)</label>
+                        <input type="text" id="builderStructure" value="7 สไลด์ : 1. ปก / 2. Executive Summary / 3. ผลการดำเนินงาน / 4. ปัญหาสำคัญ / 5. แผนยุทธศาสตร์ / 6. ประมาณการงบ / 7. มติที่ต้องอนุมัติ" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">5. สไตล์ภาพ (Visual Style)</label>
+                            <input type="text" id="builderStyle" value="Corporate Luxury โทนสีน้ำเงินเข้ม-ทอง" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">6. ภาษา (Language)</label>
+                            <input type="text" id="builderLang" value="ไทย" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Generated Prompt Preview -->
+                <div class="lg:col-span-6 bg-slate-900 text-slate-100 p-6 rounded-xl flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-3">
+                            <span class="text-xs font-semibold text-brand-400">PROMPT PREVIEW (พร้อมก๊อปปี้)</span>
+                            <span class="text-xs text-slate-400">วางในช่อง Slide Deck > ✏️</span>
+                        </div>
+                        <pre id="builderOutput" class="text-xs sm:text-sm font-sans whitespace-pre-wrap leading-relaxed text-slate-200 custom-scrollbar max-h-80 overflow-y-auto"></pre>
+                    </div>
+                    <button id="copyBuilderBtn" class="w-full py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm rounded-lg transition-colors flex items-center justify-center space-x-2">
+                        <span>📋 คัดลอก Custom Prompt นี้</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Creative Director Pro-Tips -->
+        <section id="protips" class="space-y-6 scroll-mt-20">
+            <div class="border-l-4 border-brand-600 pl-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">5. Creative Director’s Pro-Tips</h2>
+                <p class="text-slate-500 text-sm mt-1">กฎเหล็ก 3 ข้อ เพื่อยกระดับสไลด์จากธรรมดา สู่ระดับสากล</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Tip 1 -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200 space-y-3">
+                    <div class="text-amber-600 font-bold text-lg">💡 Rule 1: Strict Source Control</div>
+                    <h4 class="font-display font-semibold text-amber-950">ป้องกัน AI มั่วข้อมูล 100%</h4>
+                    <p class="text-xs text-amber-900/80 leading-relaxed">
+                        ต้องใส่คำสั่งกำกับใน Prompt เสมอว่า <span class="font-semibold text-amber-950">"ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง"</span> เพื่อบังคับให้โมเดลดึงข้อมูลเฉพาะเอกสารอ้างอิงจริงเท่านั้น
+                    </p>
+                </div>
+                <!-- Tip 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200 space-y-3">
+                    <div class="text-blue-600 font-bold text-lg">🎯 Rule 2: Action Titles Matter</div>
+                    <h4 class="font-display font-semibold text-blue-950">ห้ามใช้หัวสไลด์คำลอยๆ</h4>
+                    <p class="text-xs text-blue-900/80 leading-relaxed">
+                        อย่าปล่อยให้ AI เขียนหัวสไลด์ว่า "ผลการดำเนินงาน" แต่จงบังคับกติกาใน Prompt ให้สรุปใจความ เช่น <span class="font-semibold text-blue-950">"ยอดขาย Q3 เติบโต 15% จากการขยายตลาดเอเชีย"</span> เพื่อให้ผู้ฟังเข้าใจอินไซต์ทันที
+                    </p>
+                </div>
+                <!-- Tip 3 -->
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl border border-emerald-200 space-y-3">
+                    <div class="text-emerald-600 font-bold text-lg">📌 Rule 3: One Slide = One Takeaway</div>
+                    <h4 class="font-display font-semibold text-emerald-950">ไม่เกิน 10 สไลด์ ต่อ Deck</h4>
+                    <p class="text-xs text-emerald-900/80 leading-relaxed">
+                        การคุมจำนวนสไลด์ไม่ให้เกิน 10 แผ่น จะบังคับให้ AI สกัดเฉพาะ "น้ำเนื้อ" ที่ทรงอิมแพกต์ที่สุด ลดภาระสายตาของผู้ฟัง และสร้างการนำเสนอที่น่าจดจำ
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-3 text-sm transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <span class="text-emerald-400 font-bold">✓</span>
+        <span id="toastMsg">คัดลอก Prompt เรียบร้อยแล้ว!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+            <p>Gemini Notebook Presentation Guide • Designed with Grounded AI Framework</p>
+            <p>© 2026 Presentation Masterclass. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 20 Master Use Cases Database
+        const useCasesData = [
+            {
+                id: 1,
+                title: "01. งานวิจัยวิชาการเป็นสไลด์บรรยาย",
+                category: "academic",
+                categoryLabel: "วิชาการ & การสอน",
+                role: "คุณคืออาจารย์มหาวิทยาลัยและนักวิจัยมืออาชีพที่มีทักษะการถ่ายทอดสูง",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "นักศึกษาระดับปริญญาตรี และผู้เชี่ยวชาญในสาขา",
+                goal: "สรุปงานวิจัยซับซ้อนให้เข้าใจง่าย ได้สาระครบถ้วนภายใน 8-10 สไลด์",
+                structure: "8 สไลด์ : 1. ปกและชื่อวิจัย / 2. ที่มาและความสำคัญ / 3. คำถามและวัตถุประสงค์ / 4. กรอบแนวคิดและระเบียบวิธีวิจัย / 5. ผลการวิจัยหลัก (Part 1) / 6. ผลการวิจัยหลัก (Part 2) / 7. อภิปรายผลและข้อจำกัด / 8. สรุปและข้อเสนอแนะ",
+                rules: "หัวสไลด์ต้องเป็นประโยคใจความสำคัญ (Action Title) ไม่ใช้คำลอยๆ, ไม่เกิน 4 bullets ต่อแผ่น, ทุก bullet ต้องอ้างอิงตัวเลขหรือสถิติจากเอกสาร",
+                style: "วิชาการเรียบหรู โทนสีน้ำเงินเข้ม-เทา (Navy & Grey) ใช้ Diagrams แสดงกรอบแนวคิด",
+                language: "ไทย"
+            },
+            {
+                id: 2,
+                title: "02. รายงานประจำปีสำหรับผู้บริหาร",
+                category: "executive",
+                categoryLabel: "ผู้บริหาร & ยุทธศาสตร์",
+                role: "คุณคือ Chief Strategy Officer (CSO) ที่เชี่ยวชาญการรายงานข้อมูลระดับบริหาร",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "คณะกรรมการบริหาร (Board of Directors) และ CEO",
+                goal: "สรุปภาพรวมผลประกอบการประจำปีและทิศทางอนาคตอย่างตรงไปตรงมา",
+                structure: "7 สไลด์ : 1. ปกรายงานประจำปี / 2. Executive Summary (Highlight) / 3. สรุปผลการดำเนินงานทางการเงิน / 4. ความสำเร็จตามเป้าหมายยุทธศาสตร์ / 5. ปัญหาและอุปสรรคสำคัญ / 6. กลยุทธ์และเป้าหมายปีถัดไป / 7. มติที่ต้องพิจารณา",
+                rules: "เน้นข้อมูลเชิงตัวเลข (KPIs) และ Financial Metrics, หัวสไลด์เน้นสรุปผลลัพธ์ ไม่เกิน 3 bullets ต่อแผ่น",
+                style: "Corporate Luxury โทนสีดำ-ทอง-ขาว (Black, Gold & White) เน้น Big Numbers และ Data Cards",
+                language: "ไทย"
+            },
+            {
+                id: 3,
+                title: "03. เปิดตัวนโยบาย / ยุทธศาสตร์องค์กร",
+                category: "executive",
+                categoryLabel: "ผู้บริหาร & ยุทธศาสตร์",
+                role: "คุณคือผู้อำนวยการฝ่ายวางแผนยุทธศาสตร์องค์กร",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "พนักงานทุกระดับและบุคลากรภายในองค์กร",
+                goal: "สื่อสารนโยบายใหม่ให้ทุกคนเข้าใจทิศทางเดียวกันและพร้อมขับเคลื่อน",
+                structure: "8 สไลด์ : 1. ปกนโยบายและวิสัยทัศน์ / 2. เหตุผลและความจำเป็นที่ต้องเปลี่ยน / 3. วิสัยทัศน์และพันธกิจใหม่ / 4. 4 เสาหลักยุทธศาสตร์ (Core Pillars) / 5. แผนการดำเนินงานและ Timeline / 6. สิ่งที่พนักงานต้องปรับเปลี่ยน / 7. ผลประโยชน์ที่จะได้รับร่วมกัน / 8. Q&A และช่องทางติดต่อ",
+                rules: "ใช้ภาษาสร้างแรงบันดาลใจ อ่านง่าย ชัดเจน ไม่ใช้ศัพท์เทคนิคซับซ้อนเกินไป",
+                style: "Modern & Dynamic โทนสีสดใส น่าเชื่อถือ (Deep Blue & Bright Orange) เน้น Iconography",
+                language: "ไทย"
+            },
+            {
+                id: 4,
+                title: "04. สไลด์ปฐมนิเทศพนักงานใหม่",
+                category: "business",
+                categoryLabel: "ธุรกิจ & การตลาด",
+                role: "คุณคือ Head of People & Culture ที่เป็นมิตรและมืออาชีพ",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "พนักงานใหม่ที่เพิ่งเริ่มงานในสัปดาห์แรก",
+                goal: "แนะนำวัฒนธรรมองค์กร กฎระเบียบ และการปรับตัวให้พนักงานใหม่ประทับใจ",
+                structure: "7 สไลด์ : 1. ต้อนรับสู่ครอบครัวองค์กร / 2. ประวัติความเป็นมาและ Core Values / 3. โครงสร้างองค์กรและทีม / 4. กฎระเบียบและสวัสดิการสำคัญ / 5. เครื่องมือและระบบการทำงานหลัก / 6. แผนการทำงาน 30-60-90 วันแรก / 7. รายชื่อผู้ช่วย (Buddies/HR Contacts)",
+                rules: "โทนเสียงเป็นกันเอง (Welcoming Tone) สรุปเฉพาะจุดสำคัญที่ต้องจำ ไม่เกิน 4 บรรทัดต่อสไลด์",
+                style: "Warm & Friendly โทนสีพาสเทล หรือสีแบรนด์สดใส เน้นภาพคนและเวคเตอร์น่ารัก",
+                language: "ไทย"
+            },
+            {
+                id: 5,
+                title: "05. สไลด์บรรยายสไตล์ TED (TED-Style)",
+                category: "academic",
+                categoryLabel: "วิชาการ & การสอน",
+                role: "คุณคือ Keynote Speaker ระดับโลก และ Storyteller ผู้เชี่ยวชาญ",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้ฟังงานสัมมนาทั่วไป ที่ต้องการแรงบันดาลใจและแนวคิดใหม่",
+                goal: "จุดประกายความคิด สื่อสารไอเดียเดียวที่ทรงพลัง (One Big Idea)",
+                structure: "6 สไลด์ : 1. ข้อความเปิดตัวสะกดสายตา (Hook) / 2. ปัญหาหรือความเชื่อเดิม / 3. จุดเปลี่ยนและแนวคิดใหม่ (The Shift) / 4. เรื่องเล่า/กรณีศึกษาจริง / 5. บทเรียนและคุณค่าที่ได้รับ / 6. Call to Action (คำถามให้คิดต่อ)",
+                rules: "สไลด์หนึ่งแผ่นมีข้อความไม่เกิน 1 ประโยคเด็ด (Core Quote) หรือตัวเลขเดียว ห้ามใส่ Bullet points เด็ดขาด",
+                style: "Minimalist Cinematic เน้นภาพถ่ายอารมณ์สูง พื้นหลังสีเข้ม (Dark Theme) ข้อความขนาดใหญ่",
+                language: "ไทย"
+            },
+            {
+                id: 6,
+                title: "06. สรุปหนังสือทั้งเล่มเป็นสไลด์",
+                category: "academic",
+                categoryLabel: "วิชาการ & การสอน",
+                role: "คุณคือ Knowledge Curator และนักสรุปหนังสือระดับบริหาร",
+                source: "ใช้เฉพาะเนื้อหาในหนังสือที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้บริหารและคนทำงานที่มีเวลาจำกัด",
+                goal: "สกัดแก่นความรู้ของหนังสือ ให้เอาไปใช้อ่านจบเข้าใจใน 5 นาที",
+                structure: "6 สไลด์ : 1. ปกสรุปหนังสือและแนวคิดหลัก / 2. 3 takeaways สำคัญที่สุด / 3. สรุปเนื้อหาครึ่งแรก (Core Concepts) / 4. สรุปเนื้อหาครึ่งหลัง (Key Frameworks) / 5. วิธีนำไปปรับใช้ในการทำงาน / 6. โควททองคำจากหนังสือ",
+                rules: "เน้นสรุปเป็น Framework หรือ 3-4 ประเด็นหลักต่อหน้า ห้ามเขียนเป็นร้อยแก้วยาวๆ",
+                style: "Editorial & Clean โทนสีเหมือนหน้าหนังสือพิมพ์/นิตยสาร (Cream, Charcoal, Accent Red)",
+                language: "ไทย"
+            },
+            {
+                id: 7,
+                title: "07. ข้อเสนอโครงการ / ขออนุมัติงบประมาณ",
+                category: "executive",
+                categoryLabel: "ผู้บริหาร & ยุทธศาสตร์",
+                role: "คุณคือ Senior Project Manager ที่เด็ดขาดและเน้นผลลัพธ์ (ROI-driven)",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้มีอำนาจอนุมัติงบประมาณและคณะกรรมการการเงิน",
+                goal: "โน้มน้าวให้เห็นความคุ้มค่าและอนุมัติโครงการ/งบประมาณ",
+                structure: "8 สไลด์ : 1. ชื่อโครงการและงบที่ขอ / 2. ปัญหาและโอกาสทางธุรกิจ / 3. ข้อเสนอโซลูชัน / 4. ขอบเขตงานและ Deliverables / 5. แผนการดำเนินงานและงบประมาณอย่างละเอียด / 6. การคาดการณ์ผลตอบแทน (ROI / Impact) / 7. ความเสี่ยงและการรับมือ / 8. สิ่งที่ต้องการให้อนุมัติวันนี้",
+                rules: "ทุกสไลด์ต้องมีตัวเลขรองรับ ชี้ชัดเจนว่าใช้เงินเท่าไหร่ ได้อะไรกลับมาเมื่อไหร่",
+                style: "Professional Business โทนสีน้ำเงิน-เข้มและเขียวสด (เงิน/เติบโต) เน้นตารางเปรียบเทียบ",
+                language: "ไทย"
+            },
+            {
+                id: 8,
+                title: "08. วิเคราะห์ SWOT องค์กร",
+                category: "executive",
+                categoryLabel: "ผู้บริหาร & ยุทธศาสตร์",
+                role: "คุณคือ Management Consultant จากบริษัทที่ปรึกษาชั้นนำ",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ทีมบริหารและฝ่ายวางกลยุทธ์",
+                goal: "วิเคราะห์สถานการณ์องค์กรและเสนอแนวทางสู้ศึกธุรกิจ",
+                structure: "6 สไลด์ : 1. ปกรายงานวิเคราะห์ SWOT / 2. จุดแข็ง (Strengths) & จุดอ่อน (Weaknesses) / 3. โอกาส (Opportunities) & อุปสรรค (Threats) / 4. เมทริกซ์กลยุทธ์ TOWS (SO, ST, WO, WT) / 5. ข้อเสนอแนะยุทธศาสตร์เร่งด่วน / 6. แผนการติดตามผล",
+                rules: "ห้ามใส่แค่รายการคำ แต่ต้องระบุผลกระทบ (Impact) ของแต่ละ SWOT สั้นๆ ด้วย",
+                style: "Analytical & Structured โทนสี 4 สีแยกตามโซน SWOT (เขียว, แดง, ฟ้า, ส้ม) เน้น Matrix Grid",
+                language: "ไทย"
+            },
+            {
+                id: 9,
+                title: "09. รายงานผลการดำเนินงานรายไตรมาส (QBR)",
+                category: "executive",
+                categoryLabel: "ผู้บริหาร & ยุทธศาสตร์",
+                role: "คุณคือ Vice President of Operations",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ทีมบริหาร หัวหน้าฝ่าย และ Stakeholders",
+                goal: "ทบทวนผลการทำงานในไตรมาสที่ผ่านมา และวางแผนไตรมาสถัดไป",
+                structure: "8 สไลด์ : 1. ปก QBR (ระบุไตรมาส/ปี) / 2. Executive Highlights & Lowlights / 3. ผลงานเทียบเป้าหมาย (KPI Actual vs Target) / 4. เจาะลึกผลงานฝ่าย Sales & Marketing / 5. เจาะลึกฝ่าย Product & Operations / 6. ถ่ายทอดบทเรียนที่ได้รับ (Lessons Learned) / 7. เป้าหมายไตรมาสถัดไป / 8. สิ่งที่ต้องการความช่วยเหลือ",
+                rules: "ใช้สัญลักษณ์ visual ชัดเจน เช่น 🟢 (Achieved), 🟡 (On Track), 🔴 (Off Track) ไม่เกิน 4 ข้อต่อหน้า",
+                style: "Data-Driven Modern โทนสีเทาเข้ม ตัดด้วยสีเขียว/แดงเตือนสถานะ เน้นกราฟแท่นและ Gauge",
+                language: "ไทย"
+            },
+            {
+                id: 10,
+                title: "10. สรุปกฎหมาย / ระเบียบข้อบังคับให้เข้าใจง่าย",
+                category: "data",
+                categoryLabel: "ข้อมูล & เทคนิค",
+                role: "คุณคือที่ปรึกษากฎหมายองค์กรที่เชี่ยวชาญการสื่อสารภาษากฎหมายเป็นภาษาคน",
+                source: "ใช้เฉพาะเนื้อหาในเอกสารกฎหมาย/ระเบียบที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "พนักงานทั่วไป หรือผู้ประกอบการที่ไม่มีพื้นฐานกฎหมาย",
+                goal: "สรุปสาระสำคัญของกฎหมายใหม่ สิ่งที่ต้องทำ และบทลงโทษ",
+                structure: "7 สไลด์ : 1. ปกสรุปกฎหมาย/ระเบียบ / 2. กฎหมายนี้คืออะไร และเกี่ยวอะไรกับเรา / 3. 5 สิ่งสำคัญที่เปลี่ยนแปลง / 4. สิ่งที่ 'ต้องทำ' (Do's) / 5. สิ่งที่ 'ห้ามทำ' (Don'ts) / 6. บทลงโทษหากฝ่าฝืน / 7. ขั้นตอนการปฏิบัติตาม (Step-by-Step Checklist)",
+                rules: "ห้ามใช้ภาษากฎหมายซับซ้อน (No Legalese) เน้นใช้เคสตัวอย่างสั้นๆ ประกอบ",
+                style: "Clean & Authoritative โทนสีฟ้าคราม-ขาว (Trustworthy Blue) เน้นไอคอนเครื่องหมาย ❌ และ ✔️",
+                language: "ไทย"
+            },
+            {
+                id: 11,
+                title: "11. Startup Pitch Deck สำหรับนักลงทุน",
+                category: "business",
+                categoryLabel: "ธุรกิจ & การตลาด",
+                role: "คุณคือ Startup Founder ที่กำลังระดมทุนระดับ Seed / Series A",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "Venture Capital (VC) และ Angel Investors",
+                goal: "สร้างความตื่นเต้นและเสนอโอกาสการลงทุนที่มองข้ามไม่ได้",
+                structure: "9 สไลด์ : 1. ปกและข้อความนิยามธุรกิจ (One-liner) / 2. ปัญหาที่ยิ่งใหญ่ (The Problem) / 3. โซลูชันและผลิตภัณฑ์ (Solution & Product) / 4. ขนาดตลาด (TAM, SAM, SOM) / 5. โมเดลรายได้ (Business Model) / 6. ตัวเลขการเติบโต (Traction) / 7. ความได้เปรียบทางการแข่งขัน (Moat) / 8. ทีมงานหลัก (Team) / 9. ข้อเสนอระดมทุนและการใช้เงิน (The Ask)",
+                rules: "กระชับ ตรงประเด็น สไลด์ละ 1 ไอเดีย ไม่เกิน 3-4 บรรทัดต่อหน้า เน้นตัวเลข Traction",
+                style: "High-Tech Startup โทนสีนีออน/มืด (Dark Mode, Neon Accent) เน้นความทันสมัย",
+                language: "ไทย (ทับศัพท์เทคนิคธุรกิจภาษาอังกฤษได้)"
+            },
+            {
+                id: 12,
+                title: "12. กรณีศึกษาองค์กรสำเร็จ / ล้มเหลว",
+                category: "business",
+                categoryLabel: "ธุรกิจ & การตลาด",
+                role: "คุณคืออาจารย์คณะบริหารธุรกิจ และนักวิเคราะห์โมเดลธุรกิจ",
+                source: "ใช้เฉพาะเนื้อหาในเอกสาร Case Study ที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้บริหาร นักกลยุทธ์ และผู้เรียนการบริหารจัดการ",
+                goal: "ถอดบทเรียนความสำเร็จหรือความล้มเหลวขององค์กรในกรณีศึกษา",
+                structure: "7 สไลด์ : 1. ปกและชื่อกรณีศึกษา / 2. บริบทและ 배경ของบริษัท / 3. วิกฤตหรือจุดเปลี่ยนสำคัญ (The Challenge) / 4. การตัดสินใจและกลยุทธ์ที่ใช้ (The Strategy) / 5. ผลลัพธ์ที่เกิดขึ้น (The Outcome) / 6. บทเรียนราคาแพง (Key Takeaways) / 7. คำถามชวนคิดเพื่อนำมาปรับใช้",
+                rules: "เล่าเรื่องเป็นลำดับเวลา (Chronological order) ชัดเจน ชี้จุดตัดสินใจสำคัญ (Decision Points)",
+                style: "Documentary Style โทนสีซีเปีย-เทา หรือ ขาว-ดำ-แดง เน้นภาพประกอบประวัติศาสตร์องค์กร",
+                language: "ไทย"
+            },
+            {
+                id: 13,
+                title: "13. สอนทักษะหรือกระบวนการแบบ Step-by-Step",
+                category: "academic",
+                categoryLabel: "วิชาการ & การสอน",
+                role: "คุณคือ Technical Trainer และผู้เชี่ยวชาญด้านการจัดกระบวนการเรียนรู้",
+                source: "ใช้เฉพาะเนื้อหาในคู่มือที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้ปฏิบัติงานที่ต้องนำขั้นตอนไปทำตามทันที",
+                goal: "อธิบายขั้นตอนการทำงานให้ทำตามได้ง่าย ไม่สับสน และถูกต้อง 100%",
+                structure: "7 สไลด์ : 1. ปกชื่อคู่มือการทำงาน / 2. สิ่งที่ต้องเตรียมตัวก่อนเริ่ม (Prerequisites) / 3. ภาพรวมกระบวนการทั้งหมด (Flowchart) / 4. ขั้นตอนที่ 1-2 (Detail) / 5. ขั้นตอนที่ 3-4 (Detail) / 6. ข้อผิดพลาดที่มักเจอและวิธีแก้ (Troubleshooting) / 7. สรุปและแบบทดสอบความเข้าใจ",
+                rules: "ใช้กริยาขึ้นต้นประโยค (Action Verbs) เช่น 'กด', 'เลือก', 'กรอก' ใส่เลขลำดับ 1, 2, 3 ชัดเจน",
+                style: "Instructional Design โทนสีฟ้า-ส้ม เน้น Diagram, Flowchart และ Mockup หน้าจอ",
+                language: "ไทย"
+            },
+            {
+                id: 14,
+                title: "14. เปรียบเทียบทางเลือกและเครื่องมือ",
+                category: "data",
+                categoryLabel: "ข้อมูล & เทคนิค",
+                role: "คุณคือ Enterprise Solution Architect และที่ปรึกษาด้านเทคโนโลยี",
+                source: "ใช้เฉพาะเนื้อหาในเอกสารเปรียบเทียบที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้มีอำนาจตัดสินใจซื้อ หรือ CTO/IT Director",
+                goal: "เปรียบเทียบข้อดี-ข้อเสียของแต่ละทางเลือกเพื่อช่วยในการตัดสินใจ",
+                structure: "6 สไลด์ : 1. ปกหัวข้อการเปรียบเทียบ / 2. เกณฑ์การประเมิน (Evaluation Criteria) / 3. ตารางเปรียบเทียบภาพรวม (Comparison Matrix) / 4. เจาะลึกทางเลือก A (Pros & Cons) / 5. เจาะลึกทางเลือก B (Pros & Cons) / 6. สรุปคำแนะนำและตัวเลือกที่ดีที่สุด",
+                rules: "สรุปเป็นตารางหรือ Matrix เทียบฟีเจอร์, ราคา, ความคุ้มค่า ชัดเจน ไม่เอนเอียง",
+                style: "Clean & Analytical โทนสีเทา-น้ำเงิน-เขียว เน้น Checkbox, Feature Matrix Table",
+                language: "ไทย"
+            },
+            {
+                id: 15,
+                title: "15. เล่าเรื่องจากชุดข้อมูลตัวเลข (Data Storytelling)",
+                category: "data",
+                categoryLabel: "ข้อมูล & เทคนิค",
+                role: "คุณคือ Lead Data Analyst และนักเล่าเรื่องด้วยข้อมูล (Data Storyteller)",
+                source: "ใช้เฉพาะข้อมูลเชิงตัวเลขในเอกสารที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ผู้บริหารที่ไม่ถนัดเรื่องสถิติซับซ้อน",
+                goal: "แปลงข้อมูลตัวเลขแห้งๆ ให้กลายเป็นอินไซต์และเรื่องราวที่มีอิมแพกต์",
+                structure: "7 สไลด์ : 1. ปกและสารสำคัญที่สุดจากข้อมูล (Main Insight) / 2. บริบทของชุดข้อมูล / 3. ค้นพบที่ 1: แนวโน้มสำคัญ (Trend) / 4. ค้นพบที่ 2: ความผิดปกติ/จุดน่าสนใจ (Anomaly) / 5. ค้นพบที่ 3: ปัจจัยส่งผลกระทบ (Driver) / 6. สรุปนัยสำคัญทางธุรกิจ (Business Implication) / 7. Action Plan แนะนำ",
+                rules: "ทุกสไลด์ต้องมี '1 Data Point + 1 Meaning' (บอกตัวเลข + บอกความหมาย) ไม่ใส่แค่กราฟเปล่า",
+                style: "High-Contrast Data Visualization โทนสีกรมท่า ตัดด้วยสีแดง/ส้มเน้นจุดสำคัญของกราฟ",
+                language: "ไทย"
+            },
+            {
+                id: 16,
+                title: "16. อินโฟกราฟิกสไลด์ประเด็นเดียว (Infographic)",
+                category: "business",
+                categoryLabel: "ธุรกิจ & การตลาด",
+                role: "คุณคือ Content Strategist และ Infographic Designer",
+                source: "ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "คนรุ่นใหม่ หรือผู้รับสารในโซเชียลมีเดีย/การประชุมสั้น",
+                goal: "สื่อสารสาระสำคัญเพียงเรื่องเดียวให้จดจำง่ายที่สุดภายในสไลด์ชุดสั้น",
+                structure: "5 สไลด์ : 1. สไลด์พาดหัวเรียกความสนใจ (Big Title Hook) / 2. นิยามประเด็นใน 1 ประโยค / 3. 3 ตัวเลขสถิติช็อกโลก / 4. ผลกระทบใกล้ตัว / 5. วิธีร่วมมือหรือลงมือทำทันที",
+                rules: "ข้อความน้อยที่สุด (Micro-copy) เน้นตัวเลขขนาดใหญ่พิเศษ และคำสั้นทรงพลัง",
+                style: "Bold & Graphic โทนสีฉูดฉาด ป๊อปอาร์ต หรือ Flat Design เน้น typography ขนาดใหญ่",
+                language: "ไทย"
+            },
+            {
+                id: 17,
+                title: "17. เตรียมประชุมคณะกรรมการบริหาร (Board Briefing)",
+                category: "executive",
+                categoryLabel: "ผู้บริหาร & ยุทธศาสตร์",
+                role: "คุณคือ เลขานุการบริษัท (Corporate Secretary) และผู้ช่วยผู้บริหารระดับสูง",
+                source: "ใช้เฉพาะเนื้อหาในเอกสารวาระการประชุมที่อัปโหลดเท่านั้น",
+                audience: "ประธานและคณะกรรมการบริหารองค์กร",
+                goal: "สรุปวาระประชุม ประเด็นตัดสินใจ และข้อมูลประกอบการลงมติให้กระชับที่สุด",
+                structure: "8 สไลด์ : 1. ปกวาระการประชุมคณะกรรมการ / 2. สรุปวาระทั้งหมดและเป้าหมาย / 3. วาระที่ 1: รายงานเพื่อทราบ / 4. วาระที่ 2: รายงานทางการเงิน / 5. วาระที่ 3: เรื่องเพื่อพิจารณาอนุมัติ (A) / 6. วาระที่ 4: เรื่องเพื่อพิจารณาอนุมัติ (B) / 7. สรุปข้อลงมติที่ต้องการ / 8. กำหนดการประชุมครั้งถัดไป",
+                rules: "เน้นความถูกต้อง ระบุตัวเลข วงเงิน และข้อกฎหมาย/ข้อบังคับที่เกี่ยวข้องอย่างเคร่งครัด",
+                style: "Ultra-Formal & Elegant โทนสีน้ำเงินเข้ม-ขาว-เทา เรียบสงบ ไม่มีองค์ประกอบรกสายตา",
+                language: "ไทย"
+            },
+            {
+                id: 18,
+                title: "18. อธิบายแนวคิด / ทฤษฎีซับซ้อน",
+                category: "academic",
+                categoryLabel: "วิชาการ & การสอน",
+                role: "คุณคือ Senior Educator ผู้เชี่ยวชาญการเปรียบอุปมาอุปไมย (Analogy Expert)",
+                source: "ใช้เฉพาะเนื้อหาในเอกสารวิชาการที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "บุคคลทั่วไป หรือผู้เริ่มต้นศึกษาเรื่องนั้นๆ",
+                goal: "อธิบายแนวคิด/ทฤษฎีที่ยากและซับซ้อนให้เข้าใจง่าย ทันทีที่อ่านจบ",
+                structure: "7 สไลด์ : 1. ปกชื่อทฤษฎี/แนวคิด / 2. การเปรียบเปรยกับเรื่องใกล้ตัว (Analogy) / 3. นิยามและองค์ประกอบหลัก / 4. โครงสร้างการทำงานของทฤษฎี (Mechanism) / 5. ตัวอย่างการนำไปใช้ในชีวิตจริง / 6. ข้อจำกัดและข้อควรระวัง / 7. สรุปใจความสำคัญใน 1 หน้า",
+                rules: "ต้องมีการใช้ Analogy (การเปรียบเทียบ) ในการอธิบาย ห้ามใช้คำศัพท์เทคนิคโดยไม่อธิบายความหมาย",
+                style: "Educational & Visual โทนสีอบอุ่น (Warm Tone) เน้นภาพวาด ลายเส้น หรือ Mind Map",
+                language: "ไทย"
+            },
+            {
+                id: 19,
+                title: "19. สรุปผลสำรวจและแบบสอบถาม (Survey Results)",
+                category: "data",
+                categoryLabel: "ข้อมูล & เทคนิค",
+                role: "คุณคือ Consumer Research Lead และนักวิจัยตลาด",
+                source: "ใช้เฉพาะผลสำรวจในเอกสารที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ฝ่ายการตลาด ฝ่ายพัฒนาผลิตภัณฑ์ และผู้บริหาร",
+                goal: "ถอดรหัสความคิดพฤติกรรมผู้บริโภคจากผลสำรวจเพื่อนำไปวางกลยุทธ์",
+                structure: "7 สไลด์ : 1. ปกรายงานผลการสำรวจ / 2. ข้อมูลกลุ่มตัวอย่างและวิธีการสำรวจ (Demographics) / 3. สรุป 3 Insight หลักที่ค้นพบ / 4. ผลสำรวจหมวดพฤติกรรม / 5. ผลสำรวจหมวดความพึงพอใจและ Pain Points / 6. ข้อเสนอแนะสำหรับฝ่ายผลิตภัณฑ์/การตลาด / 7. ภาคผนวกสรุปตัวเลข",
+                rules: "ใช้ % (Percentage) และตัวเลขสถิติต่างๆ ในทุกสไลด์ เน้นเสียงของผู้ตอบแบบสอบถาม (Quotes)",
+                style: "Bright & Consumer-Centric โทนสีส้ม-ฟ้า-ขาว เน้น Donut Charts, Bar Charts และ Quote Bubbles",
+                language: "ไทย"
+            },
+            {
+                id: 20,
+                title: "20. แผนผังโรดแมปและการดำเนินงาน (Product Roadmap)",
+                category: "business",
+                categoryLabel: "ธุรกิจ & การตลาด",
+                role: "คุณคือ Chief Product Officer (CPO) และนักวางยุทธศาสตร์ผลิตภัณฑ์",
+                source: "ใช้เฉพาะเนื้อหาในแผนงานที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง",
+                audience: "ทีมพัฒนา ผลิตภัณฑ์ ฝ่ายขาย และผู้บริหาร",
+                goal: "สื่อสารเป้าหมาย ลำดับความสำคัญ และ Timeline การปล่อยงานให้ชัดเจน",
+                structure: "7 สไลด์ : 1. ปก Product Roadmap & Vision / 2. เป้าหมายใหญ่ปีนี้ (North Star Metric) / 3. สรุป Timeline รายไตรมาส (Q1-Q4) / 4. เจาะลึก Q1-Q2 (Now & Next) / 5. เจาะลึก Q3-Q4 (Later & Future) / 6. ความเสี่ยงและการพึ่งพา (Dependencies) / 7. สิ่งที่คาดว่าจะได้รับหลังจบโครงการ",
+                rules: "แบ่งระยะเวลาชัดเจน (Now, Next, Later) เน้นบอกคุณค่าที่จะส่งมอบ ไม่ใช่แค่ฟีเจอร์",
+                style: "Modern Agile & Tech โทนสีม่วง-ฟ้า (Digital Palette) เน้น Gantt Chart, Timeline & Milestone Icons",
+                language: "ไทย"
+            }
+        ];
+
+        // Format Prompt Text Generator
+        function generatePromptText(item) {
+            return `บทบาท : ${item.role}
+แหล่งข้อมูล : ${item.source}
+กลุ่มเป้าหมาย : ${item.audience}
+เป้าหมาย : ${item.goal}
+โครงสร้างสไลด์ : ${item.structure}
+กติกา : ${item.rules}
+สไตล์ภาพ : ${item.style}
+ภาษา : ${item.language}`;
+        }
+
+        // Render Cards Function
+        function renderPrompts(data) {
+            const container = document.getElementById('promptsGrid');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full bg-white p-8 text-center rounded-xl border border-slate-200">
+                        <p class="text-slate-500 text-sm">ไม่พบ Use Case ที่ตรงกับเงื่อนไขการค้นหา</p>
+                    </div>
+                `;
+                return;
+            }
+
+            data.forEach(item => {
+                const fullPrompt = generatePromptText(item);
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden";
+                card.innerHTML = `
+                    <div class="p-5 space-y-4">
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="font-display font-semibold text-slate-900 text-base leading-snug">${item.title}</h3>
+                            <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium shrink-0">${item.categoryLabel}</span>
+                        </div>
+                        
+                        <!-- Styled Prompt Box -->
+                        <div class="bg-slate-900 text-slate-100 p-4 rounded-lg font-sans text-xs leading-relaxed space-y-1.5 border border-slate-800 relative group">
+                            <div class="text-[10px] font-semibold text-brand-400 uppercase tracking-wider mb-2 border-b border-slate-800 pb-1 flex justify-between">
+                                <span>PROMPT ใน Studio</span>
+                                <span class="text-slate-500">ก๊อปปี้ไปวางในช่องดินสอ ✏️</span>
+                            </div>
+                            <p><strong class="text-slate-300">บทบาท :</strong> ${item.role}</p>
+                            <p><strong class="text-slate-300">แหล่งข้อมูล :</strong> ${item.source}</p>
+                            <p><strong class="text-slate-300">กลุ่มเป้าหมาย :</strong> ${item.audience}</p>
+                            <p><strong class="text-slate-300">เป้าหมาย :</strong> ${item.goal}</p>
+                            <p><strong class="text-slate-300">โครงสร้างสไลด์ :</strong> ${item.structure}</p>
+                            <p><strong class="text-slate-300">กติกา :</strong> ${item.rules}</p>
+                            <p><strong class="text-slate-300">สไตล์ภาพ :</strong> ${item.style}</p>
+                            <p><strong class="text-slate-300">ภาษา :</strong> ${item.language}</p>
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex justify-between items-center">
+                        <span class="text-xs text-slate-500">พร้อมใช้งาน Gemini Notebook</span>
+                        <button onclick="copyToClipboard(\`${encodeURIComponent(fullPrompt)}\`)" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-medium rounded-md transition-colors flex items-center space-x-1">
+                            <span>📋 คัดลอก Prompt</span>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Copy Function with Toast
+        function copyToClipboard(encodedText) {
+            const text = decodeURIComponent(encodedText);
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("คัดลอก Master Prompt ลง Clipboard เรียบร้อยแล้ว!");
+            }).catch(err => {
+                showToast("ไม่สามารถคัดลอกได้ กรุณาลองใหม่อีกครั้ง");
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Live Custom Builder Functionality
+        function updateBuilderOutput() {
+            const role = document.getElementById('builderRole').value;
+            const audience = document.getElementById('builderAudience').value;
+            const goal = document.getElementById('builderGoal').value;
+            const structure = document.getElementById('builderStructure').value;
+            const style = document.getElementById('builderStyle').value;
+            const lang = document.getElementById('builderLang').value;
+
+            const text = `บทบาท : ${role}
+แหล่งข้อมูล : ใช้เฉพาะเนื้อหาในแหล่งที่อัปโหลดเท่านั้น ห้ามเพิ่มข้อมูลนอกแหล่ง
+กลุ่มเป้าหมาย : ${audience}
+เป้าหมาย : ${goal}
+โครงสร้างสไลด์ : ${structure}
+กติกา : หัวสไลด์ต้องเป็นประโยคใจความสำคัญ (Action Title) ไม่ใช้คำลอยๆ, ไม่เกิน 4 bullets ต่อแผ่น, อ้างอิงตัวเลขจริงจากเอกสาร
+สไตล์ภาพ : ${style}
+ภาษา : ${lang}`;
+
+            document.getElementById('builderOutput').textContent = text;
+        }
+
+        // Filter and Search Event Handlers
+        function filterPrompts() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const catVal = document.getElementById('categoryFilter').value;
+
+            const filtered = useCasesData.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchVal) || 
+                                      item.role.toLowerCase().includes(searchVal) ||
+                                      item.goal.toLowerCase().includes(searchVal) ||
+                                      item.style.toLowerCase().includes(searchVal);
+                const matchesCat = (catVal === 'all') || (item.category === catVal);
+                return matchesSearch && matchesCat;
+            });
+
+            renderPrompts(filtered);
+        }
+
+        // Initialize Chart.js Donut Chart
+        function initCategoryChart() {
+            const ctx = document.getElementById('categoryChart').getContext('2d');
+            
+            // Count categories
+            const counts = {
+                executive: useCasesData.filter(i => i.category === 'executive').length,
+                academic: useCasesData.filter(i => i.category === 'academic').length,
+                business: useCasesData.filter(i => i.category === 'business').length,
+                data: useCasesData.filter(i => i.category === 'data').length,
+            };
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['ผู้บริหาร & ยุทธศาสตร์', 'วิชาการ & การสอน', 'ธุรกิจ & การตลาด', 'ข้อมูล & เทคนิค'],
+                    datasets: [{
+                        data: [counts.executive, counts.academic, counts.business, counts.data],
+                        backgroundColor: ['#4f46e5', '#0891b2', '#d97706', '#059669'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { family: 'Sarabun', size: 11 },
+                                boxWidth: 12,
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            bodyFont: { family: 'Sarabun' },
+                            titleFont: { family: 'Prompt' }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        }
+
+        // DOM Ready Initializations
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPrompts(useCasesData);
+            initCategoryChart();
+
+            // Builder Inputs Event Listeners
+            ['builderRole', 'builderAudience', 'builderGoal', 'builderStructure', 'builderStyle', 'builderLang'].forEach(id => {
+                document.getElementById(id).addEventListener('input', updateBuilderOutput);
+            });
+            updateBuilderOutput();
+
+            // Copy Builder Output Button
+            document.getElementById('copyBuilderBtn').addEventListener('click', () => {
+                const text = document.getElementById('builderOutput').textContent;
+                copyToClipboard(encodeURIComponent(text));
+            });
+
+            // Search and Filter Listeners
+            document.getElementById('searchInput').addEventListener('input', filterPrompts);
+            document.getElementById('categoryFilter').addEventListener('change', filterPrompts);
+        });
+    </script>
+</body>
+</html>

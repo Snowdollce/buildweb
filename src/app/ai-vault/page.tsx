@@ -77,6 +77,11 @@ export default function AiVaultPortal() {
       title: "Prompt การสร้างสตอรี่บอร์ดและสร้างคลิปวิดีโอ",
       path: "/ai-vault/storyboard-video",
       description: "คลังแสงย่อยแจก Prompt สำหรับสร้าง Storyboard และสร้างวิดีโอ Google Flow"
+    },
+    {
+      title: "Slide Deck AI Prompt",
+      path: "/ai-vault/slide-deck",
+      description: "คลังแสงย่อยแจก Prompt สำหรับแปลงเอกสารเป็นสไลด์ Presentation เวิลด์คลาสด้วย Gemini Notebook"
     }
   ];
 
