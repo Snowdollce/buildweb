@@ -353,10 +353,10 @@ export default function SlideDeckPromptPage() {
                 className="px-3 py-2.5 border-2 border-[#412d17] rounded-xl text-sm font-bold text-[#412d17] bg-white focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50"
               >
                 <option value="all">หมวดหมู่ทั้งหมด</option>
-                <option value="executive">ผู้บริหาร & ยุทธศาสตร์</option>
-                <option value="academic">วิชาการ & การสอน</option>
-                <option value="business">ธุรกิจ & การตลาด</option>
-                <option value="data">ข้อมูล & เทคนิค</option>
+                <option value="executive">{"ผู้บริหาร & ยุทธศาสตร์"}</option>
+                <option value="academic">{"วิชาการ & การสอน"}</option>
+                <option value="business">{"ธุรกิจ & การตลาด"}</option>
+                <option value="data">{"ข้อมูล & เทคนิค"}</option>
               </select>
             </div>
           </div>
