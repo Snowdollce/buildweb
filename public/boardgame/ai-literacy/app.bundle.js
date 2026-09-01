@@ -400,7 +400,7 @@
     }
 
     addEnergy(amount) {
-      this.creativeEnergy = Math.min(10, this.creativeEnergy + amount);
+      this.creativeEnergy = Math.min(3, this.creativeEnergy + amount);
       this.notify();
       return this.creativeEnergy;
     }
@@ -993,7 +993,7 @@
       const pointEl = document.getElementById("hud-point-val");
       if (pointEl) pointEl.textContent = resources.creativityPoint.toLocaleString();
       const energyEl = document.getElementById("hud-energy-val");
-      if (energyEl) energyEl.textContent = `${resources.creativeEnergy}/10`;
+      if (energyEl) energyEl.textContent = `${resources.creativeEnergy}/3`;
       const powerEl = document.getElementById("hud-power-val");
       if (powerEl) powerEl.textContent = resources.generativePower;
       const roundEl = document.getElementById("hud-round-val");
