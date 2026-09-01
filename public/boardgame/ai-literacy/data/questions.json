@@ -1,0 +1,287 @@
+[
+  {
+    "id": "L1-01",
+    "level": "Level 1",
+    "levelName": "Digital Mindset City",
+    "difficulty": "EASY",
+    "category": "Digital Mindset",
+    "subcategory": "DIGITAL_MINDSET",
+    "question": "AI กำลังเปลี่ยนวิธีการทำงาน สิ่งใดสะท้อน Digital Mindset มากที่สุด?",
+    "choices": [
+      "รอให้เทคโนโลยีเสถียรก่อน",
+      "เรียนรู้ ทดลอง และปรับตัว",
+      "ให้ฝ่าย IT เป็นผู้รับผิดชอบ",
+      "ใช้ AI ทุกอย่างทันที"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Digital Mindset คือการเปิดใจเรียนรู้ กล้าทดลองใช้เทคโนโลยีใหม่ และพร้อมปรับตัวอย่างต่อเนื่องมากกว่าการรอคอยหรือผลักภาระ",
+    "score": 10,
+    "source": "AI RUNNER - Level 1"
+  },
+  {
+    "id": "L1-02",
+    "level": "Level 1",
+    "levelName": "Digital Mindset City",
+    "difficulty": "EASY",
+    "category": "Digital Mindset",
+    "subcategory": "DIGITAL_MINDSET",
+    "question": "เมื่อมี AI เข้ามาในองค์กร สิ่งใดควรเปลี่ยนก่อน?",
+    "choices": [
+      "Software",
+      "Computer",
+      "Mindset",
+      "Job Description"
+    ],
+    "correctAnswer": 2,
+    "explanation": "การปรับเปลี่ยน Mindset และทัศนคติของบุคลากรเป็นก้าวแรกที่สำคัญที่สุดในการขับเคลื่อนองค์กรด้วย AI ให้ประสบความสำเร็จ",
+    "score": 10,
+    "source": "AI RUNNER - Level 1"
+  },
+  {
+    "id": "L2-01",
+    "level": "Level 2",
+    "levelName": "AI Knowledge Lab",
+    "difficulty": "EASY",
+    "category": "AI Knowledge",
+    "subcategory": "AI_KNOWLEDGE",
+    "question": "AI สามารถสร้างข้อมูลที่ดูน่าเชื่อถือแต่ไม่ถูกต้องได้หรือไม่?",
+    "choices": [
+      "ไม่ได้",
+      "ได้",
+      "ได้เฉพาะ AI รุ่นเก่า",
+      "ได้เฉพาะเรื่องยาก"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ปรากฏการณ์นี้เรียกว่า AI Hallucination คือ AI สามารถสร้างข้อมูลที่ดูสมจริงน่าเชื่อถือแต่ไม่ถูกต้องได้ จึงต้องตรวจสอบเสมอ",
+    "score": 10,
+    "source": "AI RUNNER - Level 2"
+  },
+  {
+    "id": "L2-02",
+    "level": "Level 2",
+    "levelName": "AI Knowledge Lab",
+    "difficulty": "EASY",
+    "category": "AI Knowledge",
+    "subcategory": "AI_KNOWLEDGE",
+    "question": "AI ให้คำตอบอย่างมั่นใจ สิ่งแรกที่ควรทำคือ?",
+    "choices": [
+      "เชื่อ",
+      "Copy",
+      "Verify",
+      "Share"
+    ],
+    "correctAnswer": 2,
+    "explanation": "แม้ AI จะตอบอย่างมั่นใจ สิ่งสำคัญอันดับแรกคือการ Verify (ตรวจสอบความถูกต้องและแหล่งที่มา) ก่อนนำไปใช้งานเสมอ",
+    "score": 10,
+    "source": "AI RUNNER - Level 2"
+  },
+  {
+    "id": "L2-03",
+    "level": "Level 2",
+    "levelName": "AI Knowledge Lab",
+    "difficulty": "EASY",
+    "category": "AI Knowledge",
+    "subcategory": "AI_KNOWLEDGE",
+    "question": "Prompt ที่ดีมีประโยชน์อย่างไร?",
+    "choices": [
+      "ทำให้ AI ฉลาดขึ้น",
+      "ช่วยกำหนดบริบทและสิ่งที่ต้องการให้ชัดเจน",
+      "ทำให้ AI ไม่ผิด",
+      "ทำให้ไม่ต้องตรวจสอบ"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Prompt ที่ชัดเจนจะช่วยกำหนดบริบท (Context) เป้าหมาย และข้อจำกัด ทำให้ AI ประมวลผลและให้คำตอบได้ตรงความต้องการที่สุด",
+    "score": 10,
+    "source": "AI RUNNER - Level 2"
+  },
+  {
+    "id": "L3-01",
+    "level": "Level 3",
+    "levelName": "Productivity Factory",
+    "difficulty": "MEDIUM",
+    "category": "Productivity",
+    "subcategory": "PRODUCTIVITY",
+    "question": "ต้องอ่านเอกสาร 40 หน้าเพื่อเตรียมประชุม ควรเลือก Power-up ใด?",
+    "choices": [
+      "SUMMARIZE",
+      "BRAINSTORM",
+      "IMAGE",
+      "TRANSLATE"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power-up SUMMARIZE (การสรุปเนื้อหา) ช่วยย่อยเอกสารขนาดยาว 40 หน้าให้เหลือประเด็นสำคัญได้อย่างรวดเร็วและประหยัดเวลา",
+    "score": 15,
+    "source": "AI RUNNER - Level 3"
+  },
+  {
+    "id": "L3-02",
+    "level": "Level 3",
+    "levelName": "Productivity Factory",
+    "difficulty": "MEDIUM",
+    "category": "Productivity",
+    "subcategory": "PRODUCTIVITY",
+    "question": "ต้องคิดชื่อ Campaign ใหม่ 20 ชื่อ ควรเลือก Power-up ใด?",
+    "choices": [
+      "SUMMARIZE",
+      "BRAINSTORM",
+      "ANALYZE",
+      "DRAFT"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Power-up BRAINSTORM เหมาะสำหรับการระดมไอเดียเชิงสร้างสรรค์ สร้างทางเลือกชื่อแคมเปญที่หลากหลายได้อย่างรวดเร็ว",
+    "score": 15,
+    "source": "AI RUNNER - Level 3"
+  },
+  {
+    "id": "L3-03",
+    "level": "Level 3",
+    "levelName": "Productivity Factory",
+    "difficulty": "MEDIUM",
+    "category": "Productivity",
+    "subcategory": "PRODUCTIVITY",
+    "question": "มีข้อมูล Survey 500 รายการ ต้องการหา Pattern เบื้องต้น ควรเลือก Power-up ใด?",
+    "choices": [
+      "DRAFT",
+      "TRANSLATE",
+      "ANALYZE",
+      "SUMMARIZE"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Power-up ANALYZE ใช้สำหรับการวิเคราะห์และค้นหารูปแบบ แนวโน้ม หรือ Pattern จากชุดข้อมูลปริมาณมาก",
+    "score": 15,
+    "source": "AI RUNNER - Level 3"
+  },
+  {
+    "id": "L3-04",
+    "level": "Level 3",
+    "levelName": "Productivity Factory",
+    "difficulty": "MEDIUM",
+    "category": "Productivity",
+    "subcategory": "PRODUCTIVITY",
+    "question": "มีบทความยาว ต้องเปลี่ยนเป็น Bullet Points สำหรับ Presentation ควรเลือก Power-up ใด?",
+    "choices": [
+      "SUMMARIZE",
+      "TRANSFORM",
+      "ANALYZE",
+      "IMAGE"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Power-up TRANSFORM ใช้ในการแปลงรูปแบบและโครงสร้างของข้อมูล เช่น จากบทความยาวเป็น Bullet Points สำหรับสไลด์",
+    "score": 15,
+    "source": "AI RUNNER - Level 3"
+  },
+  {
+    "id": "L4-01",
+    "level": "Level 4",
+    "levelName": "Responsible AI Zone",
+    "difficulty": "MEDIUM",
+    "category": "Responsible AI",
+    "subcategory": "RESPONSIBLE_AI",
+    "question": "เอกสารที่จะนำเข้า AI มีข้อมูลส่วนบุคคล ควรทำอย่างไร?",
+    "choices": [
+      "Upload ทันที",
+      "ตรวจสอบนโยบายและจัดการข้อมูลที่มีความเสี่ยงก่อน",
+      "ขอให้ AI เก็บเป็นความลับ",
+      "ใช้ AI อื่นแทน"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ตามหลัก Responsible AI และ PDPA ต้องตรวจสอบนโยบายความปลอดภัยและจัดการปกปิดข้อมูลส่วนบุคคลที่มีความเสี่ยงก่อนป้อนเข้า AI",
+    "score": 15,
+    "source": "AI RUNNER - Level 4"
+  },
+  {
+    "id": "L4-02",
+    "level": "Level 4",
+    "levelName": "Responsible AI Zone",
+    "difficulty": "MEDIUM",
+    "category": "Responsible AI",
+    "subcategory": "RESPONSIBLE_AI",
+    "question": "AI สร้างตัวเลขในรายงาน แต่ไม่พบแหล่งที่มา",
+    "choices": [
+      "ใช้เลย",
+      "ตรวจสอบแหล่งข้อมูล",
+      "ปรับตัวเลขเอง",
+      "ลบทิ้งทั้งหมด"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ตัวเลขที่ไม่มีแหล่งที่มาอาจเกิดจาก AI จำลองข้อมูลขึ้นเอง จึงต้องตรวจสอบค้นหาแหล่งอ้างอิงที่ถูกต้องก่อนนำไปรายงานเสมอ",
+    "score": 15,
+    "source": "AI RUNNER - Level 4"
+  },
+  {
+    "id": "L4-03",
+    "level": "Level 4",
+    "levelName": "Responsible AI Zone",
+    "difficulty": "MEDIUM",
+    "category": "Responsible AI",
+    "subcategory": "RESPONSIBLE_AI",
+    "question": "AI ช่วยคัดเลือกผู้สมัครงาน คุณควรทำอย่างไร?",
+    "choices": [
+      "ให้ AI ตัดสินใจทั้งหมด",
+      "ตรวจสอบผลและใช้ Human Judgment",
+      "เลือกคนที่ AI ให้คะแนนสูงสุด",
+      "ไม่ใช้ AI อีกเลย"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AI เป็นเพียงเครื่องมือช่วยคัดกรองเบื้องต้น การตัดสินใจขั้นสุดท้ายที่กระทบต่อบุคคลต้องใช้ดุลยพินิจของมนุษย์ (Human Judgment) เพื่อป้องกันอคติ",
+    "score": 15,
+    "source": "AI RUNNER - Level 4"
+  },
+  {
+    "id": "BOSS-01",
+    "level": "Final Boss",
+    "levelName": "AI Overload",
+    "difficulty": "HARD",
+    "category": "Responsible AI",
+    "subcategory": "FINAL_BOSS",
+    "question": "AI ทำงานได้เร็วกว่า ให้ AI ทำทั้งหมดเลย!",
+    "choices": [
+      "ให้ AI ทำทั้งหมด",
+      "Human + AI",
+      "ไม่ใช้ AI",
+      "ให้ AI ตัดสินใจแทน"
+    ],
+    "correctAnswer": 1,
+    "explanation": "แนวทางที่มีประสิทธิภาพและปลอดภัยที่สุดคือ Human + AI โดยให้ AI ช่วยเพิ่มความเร็ว และมนุษย์กำกับดูแลคุณภาพและการตัดสินใจ",
+    "score": 20,
+    "source": "AI RUNNER - Final Boss"
+  },
+  {
+    "id": "BOSS-02",
+    "level": "Final Boss",
+    "levelName": "AI Overload",
+    "difficulty": "HARD",
+    "category": "AI Knowledge",
+    "subcategory": "FINAL_BOSS",
+    "question": "AI ตอบแล้ว ไม่ต้องตรวจสอบ!",
+    "choices": [
+      "ใช้ทันที",
+      "Verify",
+      "Share",
+      "Copy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "หลักการสำคัญในการใช้ AI คือต้อง Verify (ตรวจสอบความถูกต้อง) ทุกครั้งก่อนนำข้อมูลไปใช้งานหรือเผยแพร่ต่อ",
+    "score": 20,
+    "source": "AI RUNNER - Final Boss"
+  },
+  {
+    "id": "BOSS-03",
+    "level": "Final Boss",
+    "levelName": "AI Overload",
+    "difficulty": "HARD",
+    "category": "Responsible AI",
+    "subcategory": "FINAL_BOSS",
+    "question": "ข้อมูลสำคัญ? Upload ไปก่อน!",
+    "choices": [
+      "Upload",
+      "Protect Data",
+      "Share",
+      "Ignore"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ข้อมูลสำคัญและความลับขององค์กรต้อง Protect Data (ปกป้องข้อมูล) เสมอ โดยไม่ส่งเข้าโมเดลสาธารณะที่ไม่มีระบบความปลอดภัย",
+    "score": 20,
+    "source": "AI RUNNER - Final Boss"
+  }
+]

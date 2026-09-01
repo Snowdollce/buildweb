@@ -1,0 +1,89 @@
+[
+  {
+    "id": "ev_01",
+    "name": "เข้าใจ AI ดีเยี่ยม",
+    "type": "REWARD",
+    "description": "คุณศึกษาเรื่อง Generative AI อย่างเข้าใจถ่องแท้",
+    "reward": {
+      "aiCoin": 300,
+      "creativityPoint": 20
+    },
+    "effectText": "+300 AI Coin, +20 Creativity Point"
+  },
+  {
+    "id": "ev_02",
+    "name": "Creative Spark!",
+    "type": "BONUS",
+    "description": "เกิดประกายความคิดสร้างสรรค์อันน่าทึ่ง",
+    "reward": {
+      "creativeEnergy": 2
+    },
+    "effectText": "+2 Creative Energy"
+  },
+  {
+    "id": "ev_03",
+    "name": "Generative Power Boost",
+    "type": "POWER",
+    "description": "ปลดล็อกพลังประมวลผลพิเศษของ AI",
+    "reward": {
+      "generativePower": 1
+    },
+    "effectText": "+1 Generative Power"
+  },
+  {
+    "id": "ev_04",
+    "name": "พักผ่อนเติมพลัง",
+    "type": "REST",
+    "description": "นั่งจิบกาแฟและพักเบรกความคิด",
+    "reward": {
+      "creativeEnergy": 1,
+      "aiCoin": 50
+    },
+    "effectText": "+1 Creative Energy, +50 AI Coin"
+  },
+  {
+    "id": "ev_05",
+    "name": "Prompt Tuning Challenge",
+    "type": "CHALLENGE",
+    "description": "ปรับแต่ง Prompt อย่างละเอียดเพื่อตอบคำถามท้าทายระดับสูง",
+    "reward": {
+      "creativityPoint": 50
+    },
+    "penalty": {
+      "aiCoin": 20
+    },
+    "effectText": "ตอบถูก: +50 Creativity Point / ตอบผิด: -20 AI Coin"
+  },
+  {
+    "id": "ev_06",
+    "name": "AI Assistant ช่วยงาน",
+    "type": "ASSIST",
+    "description": "ระบบ AI ช่วยจัดระเบียบงานและข้อมูลให้เสร็จไวขึ้น",
+    "reward": {
+      "aiCoin": 150,
+      "creativityPoint": 15
+    },
+    "effectText": "+150 AI Coin, +15 Creativity Point"
+  },
+  {
+    "id": "ev_07",
+    "name": "Server Maintenance",
+    "type": "PENALTY",
+    "description": "ระบบประมวลผลอยู่ระหว่างอัปเกรดชั่วคราว เสียค่าบำรุงรักษาเล็กน้อย",
+    "penalty": {
+      "aiCoin": 30
+    },
+    "effectText": "-30 AI Coin"
+  },
+  {
+    "id": "ev_08",
+    "name": "Innovation Grant",
+    "type": "REWARD",
+    "description": "ได้รับทุนสนับสนุนการสร้างสรรค์นวัตกรรม AI",
+    "reward": {
+      "aiCoin": 200,
+      "creativeEnergy": 1
+    },
+    "effectText": "+200 AI Coin, +1 Creative Energy"
+  }
+]

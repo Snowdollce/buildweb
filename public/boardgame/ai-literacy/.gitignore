@@ -1,0 +1,15 @@
+# OS / Editor Files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Scratch and intermediate analysis files
+extracted_pdf*.txt
+pdf*_content.json
+pdf*_readable.md
+generate_questions.py
+
+# Dependency & Environment
+node_modules/
+.system_generated/

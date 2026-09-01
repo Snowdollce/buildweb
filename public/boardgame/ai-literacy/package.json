@@ -1,0 +1,18 @@
+{
+  "name": "genai-creative-boardgame",
+  "version": "1.0.0",
+  "description": "Mastering Generative AI Creative Design - Educational Board Game",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8080",
+    "start": "python -m http.server 8080"
+  },
+  "keywords": [
+    "boardgame",
+    "generative-ai",
+    "gamification",
+    "education"
+  ],
+  "author": "FTPI",
+  "license": "MIT"
+}

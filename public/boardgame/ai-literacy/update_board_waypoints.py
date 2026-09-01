@@ -1,0 +1,147 @@
+import json
+
+board = [
+  # --- Top Row (0 to 10) ---
+  {
+    "id": "tile-00", "index": 0, "name": "เข้าใจ AI ดี (รับเงิน 300)", "category": "CORNER", "type": "REWARD_CORNER",
+    "x": 6.0, "y": 8.0, "color": "#10B981", "description": "เข้าใจ AI ดีเยี่ยม รับ 300 AI Coin"
+  },
+  {
+    "id": "tile-01", "index": 1, "name": "AI ช่วยค้นหาข้อมูล", "category": "AI_FOR_WORK", "type": "PROPERTY",
+    "propertyId": "property-01", "subcategory": "AI_SEARCH", "x": 14.5, "y": 8.0, "color": "#3B82F6"
+  },
+  {
+    "id": "tile-02", "index": 2, "name": "AI ช่วยเขียนอีเมล", "category": "AI_FOR_WORK", "type": "PROPERTY",
+    "propertyId": "property-02", "subcategory": "AI_EMAIL", "x": 22.5, "y": 8.0, "color": "#1D4ED8"
+  },
+  {
+    "id": "tile-03", "index": 3, "name": "AI สร้างสไลด์นำเสนอ", "category": "AI_FOR_WORK", "type": "PROPERTY",
+    "propertyId": "property-07", "subcategory": "AI_SLIDE", "x": 30.5, "y": 8.0, "color": "#EAB308"
+  },
+  {
+    "id": "tile-04", "index": 4, "name": "AI ช่วยวิเคราะห์ข้อมูล", "category": "AI_FOR_WORK", "type": "PROPERTY",
+    "propertyId": "property-04", "subcategory": "AI_ANALYSIS", "x": 38.5, "y": 8.0, "color": "#8B5CF6"
+  },
+  {
+    "id": "tile-05", "index": 5, "name": "เข้าห้องน้ำ", "category": "CORNER", "type": "RESTROOM",
+    "x": 47.8, "y": 8.0, "color": "#06B6D4", "description": "เข้าห้องน้ำ ผ่อนคลาย +1 Energy"
+  },
+  {
+    "id": "tile-06", "index": 6, "name": "AI ช่วยแปลภาษา", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "AI_TOOLS", "x": 57.0, "y": 8.0, "color": "#10B981"
+  },
+  {
+    "id": "tile-07", "index": 7, "name": "AI ช่วยสรุปเนื้อหา", "category": "AI_FOR_WORK", "type": "PROPERTY",
+    "propertyId": "property-03", "subcategory": "AI_SUMMARY", "x": 65.0, "y": 8.0, "color": "#10B981"
+  },
+  {
+    "id": "tile-08", "index": 8, "name": "AI ช่วยวางแผนงาน", "category": "AI_FOR_WORK", "type": "PROPERTY",
+    "propertyId": "property-05", "subcategory": "AI_PLANNING", "x": 73.0, "y": 8.0, "color": "#F59E0B"
+  },
+  {
+    "id": "tile-09", "index": 9, "name": "AI ช่วยตอบคำถาม", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "AI_BASICS", "x": 81.0, "y": 8.0, "color": "#3B82F6"
+  },
+  {
+    "id": "tile-10", "index": 10, "name": "พัก 1 รอบ", "category": "CORNER", "type": "SKIP_TURN",
+    "x": 93.0, "y": 8.0, "color": "#94A3B8", "description": "พักผ่อน ข้ามเทิร์น 1 รอบ"
+  },
+
+  # --- Right Column (11 to 16) ---
+  {
+    "id": "tile-11", "index": 11, "name": "AI ออกแบบ LOGO", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_ART", "x": 93.0, "y": 22.0, "color": "#EC4899"
+  },
+  {
+    "id": "tile-12", "index": 12, "name": "AI สร้างคอนเทนต์", "category": "AI_FOR_CREATIVITY", "type": "PROPERTY",
+    "propertyId": "property-08", "subcategory": "AI_CONTENT", "x": 93.0, "y": 35.0, "color": "#F43F5E"
+  },
+  {
+    "id": "tile-13", "index": 13, "name": "AI จัดการโซเชียลมีเดีย", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "PROMPT_ENGINEERING", "x": 93.0, "y": 48.0, "color": "#8B5CF6"
+  },
+  {
+    "id": "tile-14", "index": 14, "name": "AI ช่วยรีทัชภาพ", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_IMAGE", "x": 93.0, "y": 61.0, "color": "#D946EF"
+  },
+  {
+    "id": "tile-15", "index": 15, "name": "AI สร้างเพลง/เสียง", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_TOOLS", "x": 93.0, "y": 74.0, "color": "#06B6D4"
+  },
+  {
+    "id": "tile-16", "index": 16, "name": "START (จุดเริ่มต้น)", "category": "CORNER", "type": "START",
+    "x": 93.0, "y": 91.5, "color": "#10B981", "description": "จุดเริ่มต้น รับ 500 AI Coin"
+  },
+
+  # --- Bottom Row (17 to 26) ---
+  {
+    "id": "tile-17", "index": 17, "name": "AI ช่วยสร้าง 3D", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_ART", "x": 81.0, "y": 91.5, "color": "#3B82F6"
+  },
+  {
+    "id": "tile-18", "index": 18, "name": "AI ช่วยเขียนบท", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "PROMPT_ENGINEERING", "x": 73.0, "y": 91.5, "color": "#F59E0B"
+  },
+  {
+    "id": "tile-19", "index": 19, "name": "AI สร้างวิดีโอ", "category": "AI_FOR_CREATIVITY", "type": "PROPERTY",
+    "propertyId": "property-09", "subcategory": "AI_VIDEO", "x": 65.0, "y": 91.5, "color": "#14B8A6"
+  },
+  {
+    "id": "tile-20", "index": 20, "name": "AI ผู้ช่วยอัจฉริยะ", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "AI_BASICS", "x": 57.0, "y": 91.5, "color": "#38BDF8"
+  },
+  {
+    "id": "tile-21", "index": 21, "name": "AI Challenge (ท้าทาย)", "category": "AI_SPECIAL", "type": "CHALLENGE",
+    "subcategory": "CHALLENGE", "x": 47.8, "y": 91.5, "color": "#EF4444"
+  },
+  {
+    "id": "tile-22", "index": 22, "name": "AI สร้างภาพ (AI Art)", "category": "AI_FOR_CREATIVITY", "type": "PROPERTY",
+    "propertyId": "property-06", "subcategory": "AI_IMAGE", "x": 38.5, "y": 91.5, "color": "#EC4899"
+  },
+  {
+    "id": "tile-23", "index": 23, "name": "AI ช่วยคิดสโลแกน", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "PROMPT_ENGINEERING", "x": 30.5, "y": 91.5, "color": "#6366F1"
+  },
+  {
+    "id": "tile-24", "index": 24, "name": "AI สร้างสรรค์ไอเดีย", "category": "AI_FOR_CREATIVITY", "type": "PROPERTY",
+    "propertyId": "property-10", "subcategory": "AI_IDEA", "x": 22.5, "y": 91.5, "color": "#A855F7"
+  },
+  {
+    "id": "tile-25", "index": 25, "name": "AI ออกแบบเว็บไซต์", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "AI_TOOLS", "x": 14.5, "y": 91.5, "color": "#0284C7"
+  },
+  {
+    "id": "tile-26", "index": 26, "name": "Creative Spark Bonus", "category": "AI_SPECIAL", "type": "BONUS",
+    "x": 6.0, "y": 91.5, "color": "#F59E0B", "description": "รับโบนัสพลังงาน +2 Energy"
+  },
+
+  # --- Left Column (27 to 31) ---
+  {
+    "id": "tile-27", "index": 27, "name": "AI ออกแบบแพ็กเกจ", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_ART", "x": 6.0, "y": 74.0, "color": "#D946EF"
+  },
+  {
+    "id": "tile-28", "index": 28, "name": "AI สตรีมมิง", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "AI_TOOLS", "x": 6.0, "y": 61.0, "color": "#3B82F6"
+  },
+  {
+    "id": "tile-29", "index": 29, "name": "AI ความปลอดภัย & Ethics", "category": "AI_FOR_WORK", "type": "QUIZ",
+    "subcategory": "AI_ETHICS", "x": 6.0, "y": 48.0, "color": "#059669"
+  },
+  {
+    "id": "tile-30", "index": 30, "name": "AI ตัดต่อวิดีโอ", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_VIDEO", "x": 6.0, "y": 35.0, "color": "#14B8A6"
+  },
+  {
+    "id": "tile-31", "index": 31, "name": "AI ออกแบบโฟโต้การ์ด", "category": "AI_FOR_CREATIVITY", "type": "QUIZ",
+    "subcategory": "AI_IMAGE", "x": 6.0, "y": 22.0, "color": "#EC4899"
+  }
+]
+
+print(f"Total tiles: {len(board)}")
+assert len(board) == 32, "Must be exactly 32 tiles!"
+
+with open("data/board.json", "w", encoding="utf-8") as f:
+    json.dump(board, f, ensure_ascii=False, indent=2)
+
+print("data/board.json saved with 32 visual waypoint tiles.")

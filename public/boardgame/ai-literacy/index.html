@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บอร์ดเกมเศรษฐี Generative AI Creative Design</title>
+  <meta name="description" content="บอร์ดเกมเศรษฐี Generative AI Creative Design - Solo Educational Board Game & Quiz Challenge">
+  <link rel="stylesheet" href="styles.css?v=2.6.0">
+  <link rel="icon" href="assets/cover.png" type="image/png">
+</head>
+<body>
+
+<div id="app-root">
+
+  <!-- ================= SCREEN 1: START MENU ================= -->
+  <section id="screen-start" class="game-screen active">
+    <div class="start-container">
+      <h1 class="start-title">บอร์ดเกมเศรษฐี<br><span style="color:#F43F5E;">Generative AI Creative Design</span></h1>
+
+      <!-- Enlarged Cover.png image -->
+      <img src="assets/cover.png" alt="บอร์ดเกมเศรษฐี Generative AI Creative Design" class="start-banner-img" />
+
+      <!-- Horizontal Button Layout -->
+      <div class="start-actions-horizontal">
+        <button id="btn-start-game" class="btn-3d btn-primary">🎮 เริ่มเล่นเกม</button>
+        <button id="btn-view-leaderboard" class="btn-3d btn-warning">🏆 กระดานคะแนน</button>
+        <button id="btn-how-to-play" class="btn-3d btn-secondary">📖 กติกาการเล่น</button>
+        <button id="btn-toggle-sound" class="btn-3d btn-secondary btn-sound-toggle">🔊 เสียง: เปิด</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREEN 2: 3-COLUMN MAXIMIZED BOARD GAME SCREEN ================= -->
+  <section id="screen-board" class="game-screen">
+    <div class="widescreen-board-layout">
+      
+      <!-- 1. LEFT SIDEBAR: Player HUD & Resources -->
+      <aside class="board-left-sidebar">
+        <div>
+          <div class="hud-profile-card">
+            <div class="hud-avatar">
+              <img id="hud-avatar-img" src="assets/characters/char-01.png" alt="Player Avatar" />
+            </div>
+            <div>
+              <div id="hud-player-name" class="hud-player-name">ผู้เล่น AI</div>
+              <div id="hud-character-name" class="hud-character-badge">AI Explorer</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px; align-items:center; margin-top:2px;">
+              <div id="hud-round-val" class="hud-round-pill">รอบ 1 / 15</div>
+              <div id="hud-cards-val" class="hud-cards-pill" title="Challenge Cards ที่ตอบแล้ว">🃏 การ์ด: 0 / 15</div>
+            </div>
+          </div>
+
+          <div class="hud-resources-vertical">
+            <div class="hud-res-item-v res-coin" title="AI Coin: ใช้ซื้อและพัฒนา Property">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <img src="assets/resources/ai-coin.png" class="hud-res-icon" alt="Coin" />
+                <span>AI Coin</span>
+              </div>
+              <span id="hud-coin-val">50</span>
+            </div>
+
+            <div class="hud-res-item-v res-point" title="Creativity Point: คะแนนการเรียนรู้หลัก">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <img src="assets/resources/creativity-point.png" class="hud-res-icon" alt="Point" />
+                <span>Creativity</span>
+              </div>
+              <span id="hud-point-val">0</span>
+            </div>
+
+            <div class="hud-res-item-v res-energy" title="Creative Energy: ใช้ขอคำใบ้ หรือ Reroll">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <img src="assets/resources/creative-energy.png" class="hud-res-icon" alt="Energy" />
+                <span>Energy</span>
+              </div>
+              <span id="hud-energy-val">3/10</span>
+            </div>
+
+            <div class="hud-res-item-v res-power" title="Generative Power: ใช้คูณคะแนน Quiz x2">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <img src="assets/resources/creative-power.png" class="hud-res-icon" alt="Power" />
+                <span>Power</span>
+              </div>
+              <span id="hud-power-val">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-quick-tools">
+          <button id="btn-settings" class="btn-3d btn-secondary" style="padding:6px 12px; font-size:0.85rem;" title="ตั้งค่าระบบ">⚙️</button>
+          <button class="btn-3d btn-secondary btn-back-to-menu" style="padding:6px 14px; font-size:0.85rem;">🏠 หน้าหลัก</button>
+        </div>
+      </aside>
+
+      <!-- 2. CENTER: GIANT GAME BOARD CANVAS (MAXIMIZED AREA) -->
+      <main class="board-center-canvas-wrap" style="position: relative;">
+        <div id="game-board-grid" class="board-game-canvas-wrapper">
+          <!-- 32 Waypoints and Moving Pawn rendered directly on Design Board Game.png -->
+        </div>
+
+        <!-- In-Board Boss Rush Takeover Center Banner -->
+        <div id="board-boss-takeover" class="boss-board-takeover hidden">
+          <div class="boss-takeover-card">
+            <div style="font-size:3.2rem; margin-bottom:4px; animation: pulse 0.8s infinite;">👾⚡</div>
+            <h2 style="color:#EF4444; font-size:1.55rem; font-weight:900; margin:6px 0; letter-spacing:0.5px;">
+              🚨 FINAL BOSS: AI OVERLOAD! 🚨
+            </h2>
+            <p style="font-size:1rem; color:#F8FAFC; margin-bottom:14px; line-height:1.55;">
+              คุณเดินทางครบ 15 รอบแล้ว!<br>
+              เข้าสู่โหมดประลอง Challenge Cards ที่เหลือเพื่อพิชิตคะแนนสูงสุด<br>
+              <span style="color:#F87171; font-weight:700;">(จำกัดเวลาตอบข้อละ 6 วินาที)</span>
+            </p>
+            <button id="btn-board-start-boss" class="btn-3d btn-danger" style="padding:13px 36px; font-size:1.1rem; font-weight:800;">
+              ⚔️ เริ่มการประลอง Final Boss Rush ➔
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- 3. RIGHT SIDEBAR: Dice & Action Controls -->
+      <aside class="board-right-sidebar">
+        <div class="dice-panel-card">
+          <div style="font-weight:700; color:#0369A1; font-size:0.9rem;">ลูกเต๋า AI</div>
+          <div class="dice-scene">
+            <div id="board-dice-cube" class="dice-cube">
+              <div class="dice-face face-1">1</div>
+              <div class="dice-face face-2">2</div>
+              <div class="dice-face face-3">3</div>
+              <div class="dice-face face-4">4</div>
+              <div class="dice-face face-5">5</div>
+              <div class="dice-face face-6">6</div>
+            </div>
+          </div>
+          
+          <button id="btn-roll-dice" class="btn-3d btn-primary" style="width:100%; padding:12px 14px; font-size:1.05rem;">
+            🎲 ทอยลูกเต๋า
+          </button>
+          <button id="btn-reroll-dice" class="btn-3d btn-purple" style="width:100%; padding:8px 10px; font-size:0.82rem;" title="ใช้ 1 Creative Energy เพื่อทอยใหม่">
+            ⚡ ทอยใหม่ (1 Energy)
+          </button>
+        </div>
+
+        <div class="board-action-buttons-v">
+          <button id="btn-board-rules" class="btn-3d btn-secondary">📖 กติกา</button>
+          <button id="btn-board-sound" class="btn-3d btn-secondary btn-sound-toggle">🔊 เสียง</button>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ================= SCREEN 3: GAME OVER ================= -->
+  <section id="screen-game-over" class="game-screen">
+    <div class="gameover-card">
+      <h2 class="section-title" style="margin-top:4px; color:#0369A1;">🏁 สรุปผลคะแนน Final Score 🏁</h2>
+
+      <div class="final-score-display">
+        <div class="final-score-label">คะแนนรวมสุทธิ</div>
+        <div id="gameover-final-score" class="final-score-number">0</div>
+      </div>
+
+      <div class="score-breakdown-grid">
+        <div class="score-item">
+          <span>💡 Creativity Points:</span>
+          <strong id="gameover-creativity-pts">+0</strong>
+        </div>
+        <div class="score-item">
+          <span>🏢 Property Scores:</span>
+          <strong id="gameover-property-pts">+0</strong>
+        </div>
+        <div class="score-item">
+          <span>⚡ Generative Power Bonus:</span>
+          <strong id="gameover-power-pts">+0</strong>
+        </div>
+        <div class="score-item">
+          <span>🔥 Challenge Bonus:</span>
+          <strong id="gameover-challenge-pts">+0</strong>
+        </div>
+        <div class="score-item">
+          <span>🪙 AI Coin Bonus (10:1):</span>
+          <strong id="gameover-coin-pts">+0</strong>
+        </div>
+        <div class="score-item">
+          <span>⏱️ เวลาที่ใช้:</span>
+          <strong id="gameover-duration">0 วินาที</strong>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px; background:#FFFFFF; padding:10px 20px; border-radius:var(--radius-md); border:1px solid #E2E8F0; width:100%;">
+        <img id="gameover-avatar-img" src="assets/characters/char-01.png" style="width:52px; height:52px; object-fit:cover; border-radius:50%; border:2.5px solid #0284C7;" alt="Avatar" />
+        <div style="text-align:left;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span id="gameover-player-name" style="font-weight:700; color:#0369A1; font-size:1.05rem;">ผู้เล่น AI</span>
+            <span id="gameover-char-tag" class="hud-character-badge">AI Explorer</span>
+          </div>
+          <div style="font-size:0.85rem; color:var(--muted-text); margin-top:2px;">
+            ตอบถูก: <span id="gameover-correct-answers">0/0</span> ข้อ | ถือครอง Property: <strong id="gameover-properties-owned" style="color:#0369A1;">0</strong> แห่ง
+          </div>
+          <div id="gameover-properties-list" style="font-size:0.78rem; color:#64748B; margin-top:4px; font-style:italic;">
+            (ไม่มีการถือครอง Property)
+          </div>
+        </div>
+      </div>
+
+      <div class="start-actions-horizontal">
+        <button id="btn-submit-score" class="btn-3d btn-success">☁️ บันทึกคะแนนลงระบบ</button>
+        <button id="btn-play-again" class="btn-3d btn-primary">🔄 เล่นใหม่อีกครั้ง</button>
+        <button class="btn-3d btn-secondary btn-back-to-menu">🏠 กลับหน้าหลัก</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREEN 4: LEADERBOARD ================= -->
+  <section id="screen-leaderboard" class="game-screen">
+    <div class="leaderboard-container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h2 class="section-title" style="color:#0369A1;">🏆 ตารางอันดับคะแนน (Leaderboard)</h2>
+        <button class="btn-3d btn-secondary btn-back-to-menu" style="padding:8px 18px; font-size:0.95rem;">ย้อนกลับ</button>
+      </div>
+
+      <div class="leaderboard-table-wrap">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>อันดับ</th>
+              <th>ชื่อผู้เล่น</th>
+              <th>ตัวละคร</th>
+              <th>คะแนนรวม</th>
+              <th>ตอบถูก</th>
+              <th>วันที่</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Dynamically Rendered -->
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align:center; margin-top:6px;">
+        <button class="btn-3d btn-primary btn-back-to-menu">กลับหน้าหลัก</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODAL 1: PLAYER NAME PROMPT ================= -->
+  <div id="modal-name-prompt" class="game-modal">
+    <div class="modal-card" style="max-width:460px;">
+      <div class="modal-header">
+        <h3>👤 ขั้นตอนที่ 1: ข้อมูลผู้เล่น</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align:center; padding:24px 20px;">
+        <p style="font-size:1.05rem; font-weight:600; color:#0369A1; margin-bottom:12px;">
+          กรุณากรอกชื่อของคุณเพื่อบันทึกผลการเล่น
+        </p>
+        <input type="text" id="player-name-modal-input" class="game-input" placeholder="ใส่ชื่อของคุณที่นี่..." maxlength="30" value="" autofocus />
+        <p style="font-size:0.8rem; color:var(--muted-text); margin-top:8px;">
+          * ชื่อนี้จะแสดงบนตารางอันดับคะแนน Leaderboard
+        </p>
+      </div>
+      <div class="modal-footer-horizontal" style="justify-content:center;">
+        <button id="btn-next-to-roulette" class="btn-3d btn-primary" style="padding:12px 36px; font-size:1.05rem;">
+          ถัดไป ➔ สุ่มตัวละคร 🎲
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL 2: FULL-BODY CHARACTER ROULETTE (Left Image / Right Info) ================= -->
+  <div id="modal-character-roulette" class="game-modal">
+    <div class="modal-card" style="max-width:640px;">
+      <div class="modal-header">
+        <h3>🎲 ขั้นตอนที่ 2: ทอยเต๋าสุ่มตัวละคร AI</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" style="padding:18px 24px;">
+        
+        <!-- Two Column: Left Full-Body Portrait | Right Info & Actions -->
+        <div class="character-roulette-two-col">
+          
+          <!-- Left: Full Body Character Artwork (No Circle Crop) -->
+          <div class="roulette-left-portrait-wrap">
+            <img id="roulette-img" class="roulette-fullbody-img" src="assets/characters/char-01.png" alt="Full Body Character" />
+          </div>
+
+          <!-- Right: Info, Descriptions & Buttons -->
+          <div class="roulette-right-info">
+            <div>
+              <h3 id="roulette-char-name" style="font-size:1.4rem; color:#0369A1; font-weight:800; line-height:1.2;">
+                01_AI Explorer
+              </h3>
+              <p id="roulette-char-thai" style="font-size:1.05rem; color:#F43F5E; font-weight:700; margin-top:2px;">
+                นักสำรวจ AI
+              </p>
+              <p id="roulette-char-desc" style="font-size:0.88rem; color:var(--muted-text); margin-top:6px; line-height:1.4;">
+                ผู้เปิดประตูสู่โลกปัญญาประดิษฐ์และค้นหาขุมพลังใหม่ๆ
+              </p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+              <button id="btn-spin-character" class="btn-3d btn-warning" style="width:100%; padding:10px 18px; font-size:0.95rem;">
+                🎲 ทอยลูกเต๋าสุ่มตัวละคร (1-12)
+              </button>
+              <button id="btn-start-with-character" class="btn-3d btn-success" style="width:100%; padding:10px 18px; font-size:0.98rem;">
+                🚀 เริ่มเล่นด้วย AI Explorer ➔
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: QUIZ ================= -->
+  <div id="modal-quiz" class="game-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="quiz-modal-title">🧠 คำถามประลองความรู้ AI</h3>
+      </div>
+      <div class="modal-body">
+        <div id="quiz-boss-progress" class="boss-stage-badge hidden">⚔️ FINAL BOSS RUSH: ข้อ 1 / 8</div>
+        
+        <!-- Boss Rush 6-Second Countdown Timer Bar -->
+        <div id="quiz-boss-timer-wrap" class="boss-timer-container hidden">
+          <div class="boss-timer-header">
+            <span class="boss-timer-label">⏱️ เวลาในการตอบ Boss Challenge:</span>
+            <span id="quiz-boss-timer-val" class="boss-timer-number">6.0s</span>
+          </div>
+          <div class="boss-timer-bar-bg">
+            <div id="quiz-boss-timer-bar" class="boss-timer-bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="quiz-header-badges">
+          <span id="quiz-category-badge" class="quiz-badge badge-cat">AI for Work</span>
+          <span id="quiz-diff-badge" class="quiz-badge badge-diff">Basic (+10 Pts)</span>
+        </div>
+
+        <div id="quiz-question-text" class="quiz-question-box">
+          กำลังโหลดคำถาม...
+        </div>
+
+        <div id="quiz-choices-container" class="quiz-choices">
+          <!-- 4 choices (Randomized A, B, C, D) -->
+        </div>
+
+        <div class="quiz-assist-tools-horizontal">
+          <button id="btn-quiz-hint" class="btn-3d btn-warning" style="font-size:0.85rem; padding:8px 14px;" title="ใช้ 1 Creative Energy เพื่อตัด 2 ช้อยส์">
+            💡 ขอคำใบ้ (1 Energy)
+          </button>
+          <button id="btn-quiz-power" class="btn-3d btn-purple" style="font-size:0.85rem; padding:8px 14px;" title="ใช้ 1 Generative Power เพื่อคูณ 2 คะแนน">
+            ⚡ คะแนน x2 (1 Power)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: BOSS RUSH INTRO ================= -->
+  <div id="modal-boss-rush-intro" class="game-modal">
+    <div class="modal-card boss-rush-card">
+      <div class="modal-header boss-header">
+        <h3 style="color:#EF4444; font-size:1.35rem; display:flex; align-items:center; gap:8px;">
+          <span>🚨</span> FINAL BOSS: AI OVERLOAD! <span>🚨</span>
+        </h3>
+      </div>
+      <div class="modal-body" style="text-align:center;">
+        <div class="boss-intro-banner">
+          <div style="font-size:2.8rem; margin-bottom:6px; animation: pulse 1s infinite;">👾⚡</div>
+          <h4 style="color:#DC2626; font-size:1.2rem; margin-bottom:8px; font-weight:800;">ระบบ AI Overload กำลังเข้าครอบงำ!</h4>
+          <p style="font-size:0.95rem; color:#334155; line-height:1.55; margin-bottom:12px;">
+            คุณเดินทางครบ 15 รอบแล้ว แต่ยังมี Challenge Cards อีก <strong id="boss-remaining-count" style="color:#DC2626; font-size:1.25rem;">0</strong> ข้อที่ต้องพิชิต!<br>
+            จงใช้ความรู้และพลังงานที่สะสมมาตอบคำถามให้ครบเพื่อกอบกู้ระบบและทำคะแนนสูงสุด!
+          </p>
+          <div style="background:#FEF2F2; border:1.5px dashed #EF4444; padding:12px 14px; border-radius:var(--radius-md); font-size:0.9rem; color:#991B1B; text-align:left; line-height:1.5;">
+            ⏱️ <strong>กติกา Boss Rush:</strong> จำกัดเวลาตอบ <strong>ข้อละ 6 วินาที</strong> เท่านั้น!<br>
+            ⚡ <strong>สิทธิ์พิเศษ:</strong> ยังสามารถใช้ <strong>💡 ขอคำใบ้ (Hint)</strong> และ <strong>⚡ คะแนน x2 (Power Boost)</strong> ได้!
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-horizontal">
+        <button id="btn-start-boss-rush" class="btn-3d btn-danger" style="padding:13px 32px; font-size:1.08rem; width:100%;">⚔️ ลุย Final Boss Rush (จับเวลา 6 วิ) ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: QUIZ RESULT ================= -->
+  <div id="modal-quiz-result" class="game-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>ผลการตอบคำถาม</h3>
+      </div>
+      <div class="modal-body">
+        <div class="result-box">
+          <div id="quiz-result-title" class="result-title correct-title">🎉 ถูกต้องยอดเยี่ยม!</div>
+          <div id="quiz-result-score" class="result-score-badge score-up">+10 Creativity Point</div>
+          <div id="quiz-result-explanation" class="result-explanation">
+            คำอธิบายความรู้
+          </div>
+          <div id="quiz-result-source" class="result-source">
+            อ้างอิง: AI for Work
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-horizontal">
+        <button id="btn-quiz-next" class="btn-3d btn-primary">ดำเนินการต่อ ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: PROPERTY ================= -->
+  <div id="modal-property" class="game-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="property-modal-title">AI Property Card</h3>
+      </div>
+      <div class="modal-body">
+        <div class="property-card-display">
+          <div class="property-card-img-wrap">
+            <img id="property-modal-img" src="assets/cards/property-01.png" alt="Property Card" />
+          </div>
+          <div style="flex:1;">
+            <p id="property-modal-desc" style="font-size:0.95rem; color:var(--dark-text); margin-bottom:12px;">
+              คำอธิบาย Property
+            </p>
+            <div class="property-details-list">
+              <div class="prop-detail-row">
+                <span>ราคาซื้อ / พัฒนา:</span>
+                <strong id="property-cost-val" style="color:#0284C7;">100 AI Coin</strong>
+              </div>
+              <div class="prop-detail-row">
+                <span>คะแนนฐาน Property:</span>
+                <strong id="property-rent-val" style="color:#059669;">50 Pts</strong>
+              </div>
+              <div class="prop-detail-row">
+                <span>ค่าอัปเกรด AI Power:</span>
+                <strong id="property-power-val" style="color:#7C3AED;">200 AI Power</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-horizontal">
+        <button id="btn-property-skip" class="btn-3d btn-secondary">ข้าม</button>
+        <button id="btn-property-buy" class="btn-3d btn-success">ซื้อ Property</button>
+        <button id="btn-property-upgrade" class="btn-3d btn-purple hidden">อัปเกรด Lv.2</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: EVENT ================= -->
+  <div id="modal-event" class="game-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="event-modal-title">🌟 เหตุการณ์พิเศษ</h3>
+      </div>
+      <div class="modal-body">
+        <div class="result-box">
+          <p id="event-modal-desc" style="font-size:1.1rem; line-height:1.4;">
+            รายละเอียดเหตุการณ์
+          </p>
+          <div id="event-modal-effect" class="result-score-badge score-up" style="margin-top:8px;">
+            +300 AI Coin
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-horizontal">
+        <button id="btn-event-continue" class="btn-3d btn-primary">รับรางวัลและไปต่อ ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: HOW TO PLAY ================= -->
+  <div id="modal-how-to-play" class="game-modal">
+    <div class="modal-card" style="max-width:640px;">
+      <div class="modal-header">
+        <h3>📖 กติกาการเล่น (Game Rules)</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" style="max-height:430px; overflow-y:auto; line-height:1.55;">
+        <h4 style="color:#0369A1; margin-bottom:4px;">1. เป้าหมายของเกม</h4>
+        <p style="margin-bottom:12px; font-size:0.92rem;">
+          ทอยลูกเต๋าและเดินรอบกระดาน 32 ช่องเพื่อตอบคำถามความรู้จากหลักสูตร <strong>Generative AI Creative Design</strong> ให้ครบทั้ง 15 รอบ สะสมคะแนนและบริหารจัดการทรัพยากรเพื่อทำคะแนน Final Score ให้สูงที่สุด
+        </p>
+
+        <h4 style="color:#0369A1; margin-bottom:4px;">2. ทรัพยากรทั้ง 4 ชนิด</h4>
+        <ul style="padding-left:20px; font-size:0.92rem; margin-bottom:12px; display:flex; flex-direction:column; gap:4px;">
+          <li><strong>🪙 AI Coin:</strong> เหรียญสำหรับซื้อการ์ด Property และใช้อัปเกรด (ทุก 10 Coins = 1 คะแนนโบนัสท้ายเกม)</li>
+          <li><strong>💡 Creativity Point:</strong> คะแนนการเรียนรู้หลัก ได้จากการตอบคำถาม Quiz ถูกต้องในทุกๆ ช่อง</li>
+          <li><strong>⚡ Creative Energy:</strong> ใช้ขอคำใบ้ (ตัด 2 ช้อยส์) หรือใช้ทอยลูกเต๋าใหม่</li>
+          <li><strong>🔮 Generative Power:</strong> ใช้เพิ่มพลังคูณคะแนนคำถาม x2</li>
+        </ul>
+
+        <h4 style="color:#0369A1; margin-bottom:6px;">3. วิธีการคิดคะแนนรวมสุทธิ (Final Score)</h4>
+        <div style="background:#F0F9FF; padding:12px 16px; border-radius:var(--radius-md); font-size:0.9rem; line-height:1.6; border:1px solid #BAE6FD;">
+          <p style="margin-bottom:8px; font-weight:700; color:#0369A1;">คะแนนรวมของคุณมาจาก 5 ส่วนหลัก:</p>
+          <ul style="padding-left:20px; display:flex; flex-direction:column; gap:6px;">
+            <li><strong>1. 💡 Creativity Points:</strong> คะแนนจากการตอบคำถาม Quiz ในแต่ละช่อง (ข้อละ 10 คะแนน, หากใช้ Power คูณ x2 จะได้ 20 คะแนน)</li>
+            <li><strong>2. 🏢 Property Scores:</strong> มูลค่าคะแนนจากการซื้อการ์ด Property (การ์ดละ 50-80 คะแนน และได้เพิ่มขึ้นอีก 2 เท่าเมื่ออัปเกรดเป็น Level 2)</li>
+            <li><strong>3. ⚡ Generative Power Bonus:</strong> หลอดพลังงาน AI Power ที่สะสมไว้ตอนจบเกม (คิดเป็นโบนัส +20 คะแนนต่อ 1 หน่วย)</li>
+            <li><strong>4. 🔥 Challenge Bonus:</strong> โบนัสพิเศษจากการตอบคำถามในช่อง AI Challenge (+30 คะแนนต่อข้อ)</li>
+            <li><strong>5. 🪙 AI Coin Bonus:</strong> เหรียญ AI Coin ที่เหลืออยู่ทั้งหมด (ทุกๆ 10 Coins จะถูกแปลงเป็น +1 คะแนนโบนัส)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer-horizontal">
+        <button class="btn-3d btn-success modal-close-btn" style="padding:10px 28px; font-size:1rem;">✓ เข้าใจแล้ว</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: SETTINGS ================= -->
+  <div id="modal-settings" class="game-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>⚙️ ตั้งค่าระบบ (Settings)</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.9rem; color:var(--muted-text); margin-bottom:10px;">
+          ระบบเชื่อมต่อ Google Apps Script Web App เพื่อบันทึกคะแนนขึ้น Google Sheets อัตโนมัติ
+        </p>
+        <label style="font-weight:600; font-size:0.9rem;">Google Apps Script Web App URL:</label>
+        <input type="url" id="setting-script-url" class="game-input" placeholder="https://script.google.com/macros/s/.../exec" style="margin-top:6px;" />
+        <p style="font-size:0.8rem; color:#64748B; margin-top:8px;">
+          * ได้รับการตั้งค่าเชื่อมต่อแบบถาวรเรียบร้อยแล้ว
+        </p>
+      </div>
+      <div class="modal-footer-horizontal">
+        <button class="btn-3d btn-secondary modal-close-btn">ยกเลิก</button>
+        <button id="btn-save-settings" class="btn-3d btn-primary">บันทึก</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+</div>
+
+<!-- Embedded Data Bundle (Runs 100% reliably on file:// & offline) -->
+<script src="data-bundle.js?v=2.6.0"></script>
+
+<!-- Standalone Application Bundle -->
+<script src="app.bundle.js?v=2.6.0"></script>
+
+</body>
+</html>
