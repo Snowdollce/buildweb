@@ -132,6 +132,10 @@ export class QuizSystem {
     this.powerActive = true;
   }
 
+  deactivatePowerMultiplier() {
+    this.powerActive = false;
+  }
+
   isPowerActive() {
     return this.powerActive;
   }
@@ -146,10 +150,14 @@ export class QuizSystem {
     this.isAnswerLocked = true;
 
     const isCorrect = selectedIndex === this.currentQuestion.correctAnswer;
-    let earnedScore = isCorrect ? (this.currentQuestion.score || 10) : 0;
+    const baseScore = this.currentQuestion.score || 10;
+    let earnedScore = 0;
     
-    if (isCorrect && this.powerActive) {
-      earnedScore *= 2;
+    if (this.powerActive) {
+      // High-Risk, High-Reward: Correct = +2x, Wrong = -2x
+      earnedScore = isCorrect ? (baseScore * 2) : -(baseScore * 2);
+    } else {
+      earnedScore = isCorrect ? baseScore : 0;
     }
 
     if (this.sound) {
@@ -171,6 +179,7 @@ export class QuizSystem {
       correctAnswerText: correctText,
       score: earnedScore,
       isPowerBoosted: this.powerActive && isCorrect,
+      isPowerPenalty: this.powerActive && !isCorrect,
       questionId: this.currentQuestion.id,
       question: this.currentQuestion.question,
       level: this.currentQuestion.level,

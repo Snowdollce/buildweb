@@ -829,6 +829,20 @@ html, body {
 
 .score-up { background: #D1FAE5; color: #065F46; }
 .score-zero { background: #F1F5F9; color: #475569; }
+.score-down { background: #FEE2E2; color: #991B1B; border: 1.5px solid #EF4444; }
+
+#btn-quiz-power.active {
+  background: linear-gradient(135deg, #7C3AED 0%, #DC2626 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.85) !important;
+  animation: pulsePowerBtn 0.9s infinite alternate;
+}
+
+@keyframes pulsePowerBtn {
+  0% { transform: scale(1); box-shadow: 0 0 10px rgba(239, 68, 68, 0.6); }
+  100% { transform: scale(1.05); box-shadow: 0 0 22px rgba(239, 68, 68, 1); }
+}
 
 .result-explanation {
   font-size: 0.95rem;

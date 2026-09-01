@@ -51,6 +51,12 @@ export class ResourceManager {
     return this.creativityPoint;
   }
 
+  spendCreativityPoint(amount) {
+    this.creativityPoint = Math.max(0, this.creativityPoint - Math.max(0, amount));
+    this.notify();
+    return this.creativityPoint;
+  }
+
   addEnergy(amount) {
     this.creativeEnergy = Math.min(3, this.creativeEnergy + amount);
     this.notify();

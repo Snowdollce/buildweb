@@ -399,6 +399,12 @@
       return this.creativityPoint;
     }
 
+    spendCreativityPoint(amount) {
+      this.creativityPoint = Math.max(0, this.creativityPoint - Math.max(0, amount));
+      this.notify();
+      return this.creativityPoint;
+    }
+
     addEnergy(amount) {
       this.creativeEnergy = Math.min(3, this.creativeEnergy + amount);
       this.notify();
@@ -699,6 +705,10 @@
       this.powerActive = true;
     }
 
+    deactivatePowerMultiplier() {
+      this.powerActive = false;
+    }
+
     isPowerActive() {
       return this.powerActive;
     }
@@ -707,9 +717,12 @@
       if (!this.currentQuestion || this.isAnswerLocked) return null;
       this.isAnswerLocked = true;
       const isCorrect = selectedIndex === this.currentQuestion.correctAnswer;
-      let earnedScore = isCorrect ? (this.currentQuestion.score || 10) : 0;
-      if (isCorrect && this.powerActive) {
-        earnedScore *= 2;
+      const baseScore = this.currentQuestion.score || 10;
+      let earnedScore = 0;
+      if (this.powerActive) {
+        earnedScore = isCorrect ? (baseScore * 2) : -(baseScore * 2);
+      } else {
+        earnedScore = isCorrect ? baseScore : 0;
       }
       if (this.sound) {
         if (isCorrect) this.sound.playCorrect();
@@ -727,6 +740,7 @@
         correctAnswerText: correctText,
         score: earnedScore,
         isPowerBoosted: this.powerActive && isCorrect,
+        isPowerPenalty: this.powerActive && !isCorrect,
         usedHint: !!this.hintUsed,
         usedPower: !!this.powerActive,
         questionId: this.currentQuestion.id,
@@ -1572,7 +1586,17 @@
       const powerBtn = document.getElementById("btn-quiz-power");
       if (powerBtn) {
         powerBtn.classList.remove("active");
-        powerBtn.disabled = this.resources.generativePower < 1;
+        const isBossLevel = question.level === "Final Boss" || question.difficulty === "HARD";
+        const isPowerEligible = isBossLevel || this.resources.generativePower > 0 || Math.random() < 0.45;
+        if (isPowerEligible) {
+          powerBtn.disabled = false;
+          powerBtn.innerHTML = "⚡ เสี่ยงดวง x2 (ถูก x2 / ผิด -x2)";
+          powerBtn.title = "กดเปิดใช้งานก่อนเลือกคำตอบ: ตอบถูกได้คะแนน x2 แต่ถ้าตอบผิดจะถูกหักคะแนน x2!";
+        } else {
+          powerBtn.disabled = true;
+          powerBtn.innerHTML = "⚡ คะแนน x2 (ต้องการ 1 Power)";
+          powerBtn.title = "ต้องมี Generative Power อย่างน้อย 1 แต้ม";
+        }
       }
 
       const hintBtn = document.getElementById("btn-quiz-hint");
@@ -1754,7 +1778,10 @@
       const powerBtn = document.getElementById("btn-quiz-power");
       if (powerBtn) {
         powerBtn.classList.remove("active");
-        powerBtn.disabled = this.resources.generativePower < 1;
+        // Always allow Power toggle in Boss Rush Mode!
+        powerBtn.disabled = false;
+        powerBtn.innerHTML = "⚡ เสี่ยงดวง x2 (ถูก x2 / ผิด -x2)";
+        powerBtn.title = "กดเปิดใช้งานก่อนเลือกคำตอบ: ตอบถูกได้คะแนน x2 แต่ถ้าตอบผิดจะถูกหักคะแนน x2!";
       }
 
       const hintBtn = document.getElementById("btn-quiz-hint");
@@ -1788,15 +1815,17 @@
     }
 
     handleQuizPower() {
-      if (!this.quizSystem.isPowerActive()) {
-        if (this.resources.spendPower(1)) {
-          this.quizSystem.activatePowerMultiplier();
-          const powerBtn = document.getElementById("btn-quiz-power");
-          if (powerBtn) powerBtn.classList.add("active");
-          this.ui.showToast("เปิดใช้งานพลังคะแนน x2 สำหรับข้อนี้แล้ว!", "success");
-        } else {
-          this.ui.showToast("Generative Power ไม่เพียงพอ (ต้องการ 1)", "warning");
-        }
+      const powerBtn = document.getElementById("btn-quiz-power");
+      if (this.quizSystem.isPowerActive()) {
+        // Toggle OFF
+        this.quizSystem.deactivatePowerMultiplier();
+        if (powerBtn) powerBtn.classList.remove("active");
+        this.ui.showToast("ยกเลิกโหมดเสี่ยงดวง x2 แล้ว", "info", 2000);
+      } else {
+        // Toggle ON
+        this.quizSystem.activatePowerMultiplier();
+        if (powerBtn) powerBtn.classList.add("active");
+        this.ui.showToast("⚡ เปิดใช้งานโหมดเสี่ยง x2! (ตอบถูกได้ x2 / ตอบผิดโดนหัก x2)", "danger", 3500);
       }
     }
 
@@ -1820,8 +1849,10 @@
       };
 
       this.player.recordQuiz(result.isCorrect, isChallenge, logEntry);
-      if (result.isCorrect) {
+      if (result.score > 0) {
         this.resources.addCreativityPoint(result.score);
+      } else if (result.score < 0) {
+        this.resources.spendCreativityPoint(Math.abs(result.score));
       }
 
       this.ui.updateHUD(this.resources.getState(), this.player, this.currentRound, this.totalRounds);
@@ -1850,13 +1881,20 @@
       if (result.isCorrect) {
         titleEl.innerHTML = "🎉 ถูกต้องยอดเยี่ยม!";
         titleEl.className = "result-title correct-title";
-        scoreBadge.textContent = `+${result.score} Creativity Point ${result.isPowerBoosted ? "(x2 Power Boost!)" : ""}`;
+        scoreBadge.textContent = `+${result.score} Creativity Point ${result.isPowerBoosted ? "(⚡ x2 Power Boost!)" : ""}`;
         scoreBadge.className = "result-score-badge score-up";
       } else {
-        titleEl.innerHTML = "❌ ยังไม่ถูกต้อง";
-        titleEl.className = "result-title wrong-title";
-        scoreBadge.textContent = "+0 Creativity Point";
-        scoreBadge.className = "result-score-badge score-zero";
+        if (result.isPowerPenalty) {
+          titleEl.innerHTML = "💥 ตอบผิดพลาด! (โดนหักคะแนน x2)";
+          titleEl.className = "result-title wrong-title";
+          scoreBadge.textContent = `${result.score} Creativity Point (⚡ Power Penalty x2)`;
+          scoreBadge.className = "result-score-badge score-down";
+        } else {
+          titleEl.innerHTML = "❌ ยังไม่ถูกต้อง";
+          titleEl.className = "result-title wrong-title";
+          scoreBadge.textContent = "+0 Creativity Point";
+          scoreBadge.className = "result-score-badge score-zero";
+        }
       }
 
       expEl.textContent = result.explanation || "ไม่มีคำอธิบายเพิ่มเติม";
