@@ -1,0 +1,98 @@
+[
+  {
+    "id": "char-01",
+    "name": "AI Explorer",
+    "thaiName": "นักสำรวจ AI",
+    "role": "Explorer",
+    "avatarAsset": "assets/characters/char-01.png",
+    "description": "ผู้เปิดประตูสู่โลกปัญญาประดิษฐ์และค้นหาขุมพลังใหม่ๆ"
+  },
+  {
+    "id": "char-02",
+    "name": "Prompt Master",
+    "thaiName": "ปรมาจารย์ Prompt",
+    "role": "Prompt Engineer",
+    "avatarAsset": "assets/characters/char-02.png",
+    "description": "ผู้เชี่ยวชาญการป้อนคำสั่งสื่อสารกับ AI ได้อย่างแม่นยำ"
+  },
+  {
+    "id": "char-03",
+    "name": "Image Creator",
+    "thaiName": "นักสร้างสรรค์ภาพ AI",
+    "role": "Visual Artist",
+    "avatarAsset": "assets/characters/char-03.png",
+    "description": "ผู้เนรมิตจินตนาการสู่ผลงานภาพศิลปะอันงดงาม"
+  },
+  {
+    "id": "char-04",
+    "name": "Video Creator",
+    "thaiName": "ผู้กำกับวิดีโอ AI",
+    "role": "Motion Director",
+    "avatarAsset": "assets/characters/char-04.png",
+    "description": "ผู้สร้างภาพยนตร์และวิดีโอเคลื่อนไหวสุดล้ำยุค"
+  },
+  {
+    "id": "char-05",
+    "name": "Storyteller",
+    "thaiName": "นักเล่าเรื่อง AI",
+    "role": "Writer",
+    "avatarAsset": "assets/characters/char-05.png",
+    "description": "ผู้ร้อยเรียงบทประพันธ์และเนื้อหาที่กินใจผู้คน"
+  },
+  {
+    "id": "char-06",
+    "name": "Creative Designer",
+    "thaiName": "นักออกแบบสร้างสรรค์",
+    "role": "Designer",
+    "avatarAsset": "assets/characters/char-06.png",
+    "description": "ผู้ออกแบบอัตลักษณ์ กราฟิก และสื่อสร้างสรรค์ครบวงจร"
+  },
+  {
+    "id": "char-07",
+    "name": "Idea Generator",
+    "thaiName": "ผู้จุดประกายไอเดีย",
+    "role": "Innovator",
+    "avatarAsset": "assets/characters/char-07.png",
+    "description": "ผู้คิดค้นนวัตกรรมและคอนเซปต์สดใหม่ไร้ขีดจำกัด"
+  },
+  {
+    "id": "char-08",
+    "name": "AI Strategist",
+    "thaiName": "นักวางแผนกลยุทธ์ AI",
+    "role": "Strategist",
+    "avatarAsset": "assets/characters/char-08.png",
+    "description": "ผู้วางกลยุทธ์ยกระดับผลิตภาพองค์กรด้วย AI"
+  },
+  {
+    "id": "char-09",
+    "name": "Problem Solver",
+    "thaiName": "นักแก้ปัญหาอัจฉริยะ",
+    "role": "Analyst",
+    "avatarAsset": "assets/characters/char-09.png",
+    "description": "ผู้ใช้ AI วิเคราะห์และแก้ปัญหาความท้าทายได้อย่างเฉียบคม"
+  },
+  {
+    "id": "char-10",
+    "name": "AI Assistance",
+    "thaiName": "ผู้ช่วย AI มือโปร",
+    "role": "Co-Pilot",
+    "avatarAsset": "assets/characters/char-10.png",
+    "description": "คู่หู AI อัจฉริยะที่ช่วยงานประจำวันได้อย่างรวดเร็ว"
+  },
+  {
+    "id": "char-11",
+    "name": "Innovation Hero",
+    "thaiName": "ฮีโร่แห่งนวัตกรรม",
+    "role": "Leader",
+    "avatarAsset": "assets/characters/char-11.png",
+    "description": "ผู้นำการเปลี่ยนแปลงทางเทคโนโลยีสู่อนาคต"
+  },
+  {
+    "id": "char-12",
+    "name": "Creative Master",
+    "thaiName": "ผู้เชี่ยวชาญความคิดสร้างสรรค์",
+    "role": "Master",
+    "avatarAsset": "assets/characters/char-12.png",
+    "description": "สุดยอดผู้เชี่ยวชาญที่ผสมผสาน AI กับความคิดสร้างสรรค์ขั้นสูงสุด"
+  }
+]

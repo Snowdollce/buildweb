@@ -721,6 +721,11 @@ export class GameManager {
     this.player.recordQuiz(result.isCorrect, isChallenge);
     if (result.score > 0) {
       this.resources.addCreativityPoint(result.score);
+      // Reward +1 Power when winning with Power Boost, or answering Boss/Challenge correctly!
+      if (result.isPowerBoosted || result.level === "Final Boss" || result.difficulty === "HARD" || isChallenge) {
+        this.resources.addPower(1);
+        result.gainedPower = 1;
+      }
     } else if (result.score < 0) {
       this.resources.spendCreativityPoint(Math.abs(result.score));
     }
@@ -753,7 +758,9 @@ export class GameManager {
     if (result.isCorrect) {
       titleEl.innerHTML = "🎉 ถูกต้องยอดเยี่ยม!";
       titleEl.className = "result-title correct-title";
-      scoreBadge.textContent = `+${result.score} Creativity Point ${result.isPowerBoosted ? "(⚡ x2 Power Boost!)" : ""}`;
+      const powerBadgeText = result.gainedPower ? " ⚡ (+1 Power!)" : "";
+      const boostText = result.isPowerBoosted ? " (x2 Boost)" : "";
+      scoreBadge.textContent = `+${result.score} Creativity Point${boostText}${powerBadgeText}`;
       scoreBadge.className = "result-score-badge score-up";
     } else {
       if (result.isPowerPenalty) {

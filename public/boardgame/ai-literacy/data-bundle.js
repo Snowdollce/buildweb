@@ -9,7 +9,7 @@ window.GENAI_GAME_DATA = {
     "aiCoin": 50,
     "creativityPoint": 0,
     "creativeEnergy": 3,
-    "generativePower": 0
+    "generativePower": 1
   },
   "passStartReward": {
     "aiCoin": 500

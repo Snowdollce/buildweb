@@ -1,0 +1,151 @@
+{
+  "characters": [
+    {
+      "id": "character-01",
+      "name": "AI Explorer",
+      "path": "assets/characters/character-01.png",
+      "approved": true
+    },
+    {
+      "id": "character-02",
+      "name": "Prompt Master",
+      "path": "assets/characters/character-02.png",
+      "approved": true
+    },
+    {
+      "id": "character-03",
+      "name": "Image Creator",
+      "path": "assets/characters/character-03.png",
+      "approved": true
+    },
+    {
+      "id": "character-04",
+      "name": "Video Creator",
+      "path": "assets/characters/character-04.png",
+      "approved": true
+    },
+    {
+      "id": "character-05",
+      "name": "Storyteller",
+      "path": "assets/characters/character-05.png",
+      "approved": true
+    },
+    {
+      "id": "character-06",
+      "name": "Creative Designer",
+      "path": "assets/characters/character-06.png",
+      "approved": true
+    },
+    {
+      "id": "character-07",
+      "name": "Idea Generator",
+      "path": "assets/characters/character-07.png",
+      "approved": true
+    },
+    {
+      "id": "character-08",
+      "name": "AI Strategist",
+      "path": "assets/characters/character-08.png",
+      "approved": true
+    },
+    {
+      "id": "character-09",
+      "name": "Problem Solver",
+      "path": "assets/characters/character-09.png",
+      "approved": true
+    },
+    {
+      "id": "character-10",
+      "name": "AI Assistant",
+      "path": "assets/characters/character-10.png",
+      "approved": true
+    },
+    {
+      "id": "character-11",
+      "name": "Innovation Hero",
+      "path": "assets/characters/character-11.png",
+      "approved": true
+    },
+    {
+      "id": "character-12",
+      "name": "Creative Master",
+      "path": "assets/characters/character-12.png",
+      "approved": true
+    }
+  ],
+  "properties": [
+    {
+      "id": "property-01",
+      "name": "AI ค้นหาข้อมูล",
+      "path": "assets/cards/property-01.png",
+      "approved": true
+    },
+    {
+      "id": "property-02",
+      "name": "AI เขียนอีเมล",
+      "path": "assets/cards/property-02.png",
+      "approved": true
+    },
+    {
+      "id": "property-03",
+      "name": "AI สรุปเนื้อหา",
+      "path": "assets/cards/property-03.png",
+      "approved": true
+    },
+    {
+      "id": "property-04",
+      "name": "AI วิเคราะห์ข้อมูล",
+      "path": "assets/cards/property-04.png",
+      "approved": true
+    },
+    {
+      "id": "property-05",
+      "name": "AI วางแผนงาน",
+      "path": "assets/cards/property-05.png",
+      "approved": true
+    },
+    {
+      "id": "property-06",
+      "name": "AI สร้างภาพ",
+      "path": "assets/cards/property-06.png",
+      "approved": true
+    },
+    {
+      "id": "property-07",
+      "name": "AI สร้างสไลด์",
+      "path": "assets/cards/property-07.png",
+      "approved": true
+    },
+    {
+      "id": "property-08",
+      "name": "AI สร้างคอนเทนต์",
+      "path": "assets/cards/property-08.png",
+      "approved": true
+    },
+    {
+      "id": "property-09",
+      "name": "AI สร้างวิดีโอ",
+      "path": "assets/cards/property-09.png",
+      "approved": true
+    },
+    {
+      "id": "property-10",
+      "name": "AI สร้างสรรค์ไอเดีย",
+      "path": "assets/cards/property-10.png",
+      "approved": true
+    }
+  ],
+  "resources": {
+    "aiCoin": "assets/resources/ai-coin.png",
+    "creativityPoint": "assets/resources/creativity-point.png",
+    "creativeEnergy": "assets/resources/creative-energy.png",
+    "creativePower": "assets/resources/creative-power.png"
+  },
+  "money": {
+    "banknote5": "assets/money/banknote-5.png",
+    "banknote10": "assets/money/banknote-10.png"
+  },
+  "board": {
+    "gameBoard": "assets/board/game-board.png"
+  }
+}

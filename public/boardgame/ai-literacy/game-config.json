@@ -1,0 +1,24 @@
+{
+  "title": "Mastering Generative AI Creative Design Board Game",
+  "version": "1.0.0",
+  "totalRounds": 15,
+  "boardSize": 32,
+  "startingResources": {
+    "aiCoin": 50,
+    "creativityPoint": 0,
+    "creativeEnergy": 3,
+    "generativePower": 1
+  },
+  "passStartReward": {
+    "aiCoin": 500
+  },
+  "scoreCalculation": {
+    "coinToScoreRatio": 10,
+    "powerBonusMultiplier": 20,
+    "skipTurnPenalty": 0
+  },
+  "api": {
+    "spreadsheetId": "1In60iHFC52qQn4ExXHWRTvxuk2bipHfVnNdEHx7hKTA",
+    "defaultScriptUrl": "https://script.google.com/macros/s/AKfycbxGhaaGwZYMsTOxGdQ73r_k8rXICxhz8I5RI1Q1yGk2d9XWI3KhELYlIwtMuURGgYdTXA/exec"
+  }
+}

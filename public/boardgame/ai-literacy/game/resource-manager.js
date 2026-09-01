@@ -8,7 +8,7 @@ export class ResourceManager {
     this.aiCoin = initialConfig.aiCoin ?? 50;
     this.creativityPoint = initialConfig.creativityPoint ?? 0;
     this.creativeEnergy = initialConfig.creativeEnergy ?? 3;
-    this.generativePower = initialConfig.generativePower ?? 0;
+    this.generativePower = initialConfig.generativePower ?? 1;
     this.listeners = [];
   }
 

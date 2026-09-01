@@ -1,0 +1,112 @@
+[
+  {
+    "id": "property-01",
+    "name": "AI ค้นหาข้อมูล",
+    "category": "AI_FOR_WORK",
+    "cardAsset": "assets/cards/property-01.png",
+    "color": "#3B82F6",
+    "rent": 50,
+    "developmentCost": 100,
+    "aiPower": 200,
+    "description": "ค้นหาและอ้างอิงข้อมูลเว็บอย่างรวดเร็วและแม่นยำ"
+  },
+  {
+    "id": "property-02",
+    "name": "AI เขียนอีเมล",
+    "category": "AI_FOR_WORK",
+    "cardAsset": "assets/cards/property-02.png",
+    "color": "#1D4ED8",
+    "rent": 60,
+    "developmentCost": 120,
+    "aiPower": 240,
+    "description": "ร่างจดหมายและอีเมลสื่อสารอย่างเป็นมืออาชีพ"
+  },
+  {
+    "id": "property-03",
+    "name": "AI สรุปเนื้อหา",
+    "category": "AI_FOR_WORK",
+    "cardAsset": "assets/cards/property-03.png",
+    "color": "#10B981",
+    "rent": 70,
+    "developmentCost": 140,
+    "aiPower": 280,
+    "description": "กลั่นกรองบทความและเอกสารยาวให้กระชับตรงประเด็น"
+  },
+  {
+    "id": "property-04",
+    "name": "AI วิเคราะห์ข้อมูล",
+    "category": "AI_FOR_WORK",
+    "cardAsset": "assets/cards/property-04.png",
+    "color": "#8B5CF6",
+    "rent": 80,
+    "developmentCost": 160,
+    "aiPower": 320,
+    "description": "สกัด Insight คาดการณ์แนวโน้มและพฤติกรรมข้อมูล"
+  },
+  {
+    "id": "property-05",
+    "name": "AI วางแผนงาน",
+    "category": "AI_FOR_WORK",
+    "cardAsset": "assets/cards/property-05.png",
+    "color": "#F59E0B",
+    "rent": 100,
+    "developmentCost": 200,
+    "aiPower": 400,
+    "description": "วางแผนโปรเจกต์ ลำดับขั้นตอนและจัดสรรเวลา"
+  },
+  {
+    "id": "property-06",
+    "name": "AI สร้างภาพ",
+    "category": "AI_FOR_CREATIVITY",
+    "cardAsset": "assets/cards/property-06.png",
+    "color": "#EC4899",
+    "rent": 120,
+    "developmentCost": 240,
+    "aiPower": 480,
+    "description": "เปลี่ยนจินตนาการเป็นภาพศิลปะและกราฟิก 3D คุณภาพสูง"
+  },
+  {
+    "id": "property-07",
+    "name": "AI สร้างสไลด์",
+    "category": "AI_FOR_WORK",
+    "cardAsset": "assets/cards/property-07.png",
+    "color": "#EAB308",
+    "rent": 120,
+    "developmentCost": 240,
+    "aiPower": 480,
+    "description": "จัดโครงสร้างและสร้างงานนำเสนอ Presentation อัตโนมัติ"
+  },
+  {
+    "id": "property-08",
+    "name": "AI สร้างคอนเทนต์",
+    "category": "AI_FOR_CREATIVITY",
+    "cardAsset": "assets/cards/property-08.png",
+    "color": "#F43F5E",
+    "rent": 150,
+    "developmentCost": 300,
+    "aiPower": 600,
+    "description": "สร้างแคปชัน บทความ และเนื้อหาการตลาดบน Social Media"
+  },
+  {
+    "id": "property-09",
+    "name": "AI สร้างวิดีโอ",
+    "category": "AI_FOR_CREATIVITY",
+    "cardAsset": "assets/cards/property-09.png",
+    "color": "#14B8A6",
+    "rent": 180,
+    "developmentCost": 360,
+    "aiPower": 720,
+    "description": "สร้างโมชัน วิดีโอ และเรื่องราวเสมือนจริง"
+  },
+  {
+    "id": "property-10",
+    "name": "AI สร้างสรรค์ไอเดีย",
+    "category": "AI_FOR_CREATIVITY",
+    "cardAsset": "assets/cards/property-10.png",
+    "color": "#A855F7",
+    "rent": 200,
+    "developmentCost": 400,
+    "aiPower": 800,
+    "description": "ระดมความคิดและต่อยอดนวัตกรรมใหม่ไร้ขีดจำกัด"
+  }
+]
